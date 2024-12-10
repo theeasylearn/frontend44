@@ -5,7 +5,6 @@ Develop a wesite to make reader aware about Yoga.
         Home 
         rest of pages depands concept
         Developer 
-
     use html & html 5 
 
 language Hindi/gujarati

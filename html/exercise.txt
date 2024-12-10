@@ -5,3 +5,9 @@
 
 3) create html page which has detail of top 10 selling in 2022. use heading, p, div and span and formatting tags like b, i, u etc. 
 
+4) create html page that has list of all the famous authors in india. list should be numeric 
+
+5) create html page that has list of all 7 continents and sub list of all countries in each continents
+
+6) create html page that has table to show state names, area, population, income per person, language and gdp contribution.
+
