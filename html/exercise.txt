@@ -1,6 +1,5 @@
 1) create html page which has 10 Hottest Tourist destination in world. use heading, p, div and span and formatting tags like b, i, u etc. 
 
-
 2) create html page which has 10 gujarati food recipe in gujarati language. use heading, p, div and span and formatting tags like b, i, u etc. 
 
 3) create html page which has detail of top 10 selling in 2022. use heading, p, div and span and formatting tags like b, i, u etc. 
@@ -11,3 +10,4 @@
 
 6) create html page that has table to show state names, area, population, income per person, language and gdp contribution.
 
+7) create html page to describe 10 successful indian CEO in IT WORLD. display Name,Age, Education, struggle & success story, photo and his speech video in hindi & facebook, instagram, linked profile link of each.  
