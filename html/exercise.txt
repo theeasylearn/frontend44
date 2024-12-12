@@ -11,3 +11,8 @@
 6) create html page that has table to show state names, area, population, income per person, language and gdp contribution.
 
 7) create html page to describe 10 successful indian CEO in IT WORLD. display Name,Age, Education, struggle & success story, photo and his speech video in hindi & facebook, instagram, linked profile link of each.  
+
+8) create html page for change password. 
+
+9) create html page for forgot password.
+
