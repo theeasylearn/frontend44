@@ -13,7 +13,7 @@
     </h1>
     <hr>
     <div align="center">
-        <form action="success.html">
+        <form action="success.html" method="post">
             <table border="2" cellpadding="10" width="60%">
                 <tr>
                     <td colspan="2" align="center">
@@ -44,7 +44,7 @@
                         Enter your email
                     </td>
                     <td>
-                        <input type="email" placeholder="eg. jhonDoe@gmail.com" name="email" required>
+                        <input type="email" placeholder="eg. jhonDoe@gmail.com" name="email" required />
                     </td>
                 </tr>
                 <tr>
@@ -52,7 +52,7 @@
                         Enter your password
                     </td>
                     <td>
-                        <input type="password" placeholder="eg. JhonDoe@123" name="password">
+                        <input type="password" placeholder="eg. JhonDoe@123" name="password" required />
                     </td>
                 </tr>
                 <tr>
@@ -60,17 +60,17 @@
                         Enter your date of birth
                     </td>
                     <td>
-                        <input type="date" name="dob">
+                        <input type="date" name="dob" required>
                     </td>
                 </tr>
                 <tr>
                     <td>Select your gender</td>
                     <td>
-                        <input type="radio" name="gender" value="1" id="male">
+                        <input type="radio" name="gender" value="1" id="male" required>
                         <label for="male">
                             Male
                         </label>
-                        <input type="radio" name="gender" value="2" id="female">
+                        <input type="radio" name="gender" value="2" id="female" required>
                         <label for="female">
                             Female
                         </label>
@@ -81,13 +81,13 @@
                         Select your hobbies
                     </td>
                     <td>
-                        <input type="checkbox" value="1" id="cricket" name="hobbies"> <label for="cricket">
+                        <input type="checkbox" value="1" id="cricket" name="cricket"> <label for="cricket">
                             Cricket
                         </label>
-                        <input type="checkbox" value="2" id="coding" name="hobbies"> <label for="coding">
+                        <input type="checkbox" value="2" id="coding" name="coding"> <label for="coding">
                             Coding
                         </label>
-                        <input type="checkbox" value="3" id="hockey" name="hobbies"> <label for="hockey">
+                        <input type="checkbox" value="3" id="hockey" name="hockey"> <label for="hockey">
                             Hockey
                         </label>
                     </td>
@@ -97,7 +97,7 @@
                         Select your country
                     </td>
                     <td>
-                        <select name="country" id="">
+                        <select name="country" id="" required>
                             <option value="AF">Afghanistan</option>
                             <option value="AL">Albania</option>
                             <option value="DZ">Algeria</option>
@@ -305,19 +305,30 @@
                 </tr>
                 <tr>
                     <td>
+                        Select your photo
+                    </td>
+                    <td>
+                        <input type="file" name="photo" id="photo" accept="image/*" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         Enter your address
                     </td>
                     <td>
                         <textarea name="" id="" rows="5" cols="30">
         address goes here
-                            </textarea>
+                        </textarea>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2" align="center">
                         <input type="submit" value="Register">
+                        <input type="reset" value="clear all" />
+                        <input type="button" value="do nothing" />
                     </td>
                 </tr>
+
             </table>
         </form>
     </div>

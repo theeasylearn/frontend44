@@ -16,3 +16,10 @@
 
 9) create html page for forgot password.
 
+10) create html page to search bus route. for reference use below link 
+https://gsrtc.in/site/
+
+11) create registration for for matrimonial website. for reference use 
+https://www.shaadi.com/jo
+
+
