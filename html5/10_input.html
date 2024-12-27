@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>input in html 5</h1>
+    <form action="success.html" method="post" autocomplete="on">
+        <table border="1" cellpadding="10" width="80%" align="center">
+            <tr>
+                <td>
+                    <label for="email">Email Address</label>
+                    <input type="email" name="email" id="email" required
+                    autocomplete="off" />
+                </td>
+            </tr>
+            <tr>
+
+                <td>
+                    <label for="date">birth date</label>
+                    <input type="date" name="date" id="date" required />
+                </td>
+            </tr>
+            <tr>
+
+                <td>
+                    <label for="color">Favorite Color</label>
+                    <input type="color" name="color" id="color" required />
+                </td>
+            </tr>
+            <tr>
+
+                <td>
+                    <label for="time">Wake up time</label>
+                    <input type="time" name="time" id="time" required />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="website">Website name</label>
+                    <input type="url" name="website" id="website" required />
+                </td>
+            </tr>
+            <tr>
+
+                <td>
+                    <label for="month">Anniversary Month</label>
+                    <input type="month" name="month" id="month" required />
+                </td>
+            </tr>
+            <tr>
+
+                <td>
+                    <label for="week">Anniversary Week</label>
+                    <input type="week" name="week" id="week" required />
+                </td>
+            </tr>
+            <tr>
+
+                <td>
+                    <label for="income">Monthly income</label>
+                    <input type="number" name="income" id="income" required step="0.02" />
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <input type="submit" value="submit data" />
+                    <input type="reset" value="clear all" />
+                    <input type="button" value="do nothing"  />
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
