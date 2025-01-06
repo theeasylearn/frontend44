@@ -1,0 +1,54 @@
+/* font CDN (content delivery network) */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+/* universal selector */
+*
+{
+    margin:0px;
+    padding:0px;
+    letter-spacing: 1px;
+    font-family: "Open Sans", serif;
+}
+/* type selector */
+body 
+{
+    color:#8D0B41; 
+    background-color:#FFF8E6;    
+}
+h1, h2, h3, h4, h5, h6 
+{
+    font-family: "DM Serif Display", serif;
+}
+/* class selector style */
+.heading 
+{
+    background-color: #8D0B41;
+    color:#FFF8E6;
+}
+.shadow 
+{
+    box-shadow: rgba(240, 46, 170, 0.4) 0px 5px, 
+                rgba(240, 46, 170, 0.3) 0px 10px, 
+                rgba(240, 46, 170, 0.2) 0px 15px, 
+                rgba(240, 46, 170, 0.1) 0px 20px, 
+                rgba(240, 46, 170, 0.05) 0px 25px;
+}
+.bottom-margin 
+{
+    margin-bottom: 50px;
+}
+#page-footer 
+{
+    background-color: #8D0B41;
+    color:#FFF8E6;
+    position: absolute;
+    left:0px;
+    bottom: 0px;
+    width:100%;
+    text-align: center;
+}
+.highlight 
+{
+    background-color: yellow;
+    font-weight: bold;
+    color:black;
+}
