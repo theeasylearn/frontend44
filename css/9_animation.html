@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+        *{
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        h1{
+            text-align: center;
+        }
+
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            transition: all ease-in-out 1s;
+        }
+        #d1:hover{
+            background-color: blue;
+        }
+        #d2:hover{
+            transform: scale(2);
+            background-color: blueviolet;
+        }
+        #d3:hover{
+            transform: rotate(360deg);
+            transform: rotateX(180deg);
+            transform: rotateY(360deg);
+            transform: rotateZ(180deg);
+            background-color: black;
+            border: 5px solid red;
+        }
+
+        h2:hover + #d4 {
+            transform: translateX(400px); /* Move the div 100px to the right when h2 is hovered */
+          }
+
+    </style>
+    </head>
+    <body>
+        <h1>
+            working with animation - transition and transform
+        </h1>
+        <hr>
+
+        <table cellpadding="20px">
+            <tr>
+                <td><h2>
+                        color change
+                    </h2>
+                    <div id="d1">
+
+                    </div></td>
+
+                <td>
+                    <h2>change size</h2>
+                    <div id="d2">
+                        
+                    </div>
+                </td>
+                <td>
+                    <h2>rotate tag</h2>
+                    <div id="d3">
+                        
+                    </div>
+                </td>
+                <td>
+                    <h2 id="translate">transform tag</h2>
+                    <div id="d4">
+                        
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
