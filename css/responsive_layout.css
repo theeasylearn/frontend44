@@ -17,10 +17,15 @@ h1{
 
 article{
     background-color: rgb(9, 37, 82);
-    width: 20%;
+    width: 90%;
     padding: 10px;
     color: white;
     text-transform: capitalize;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    margin-bottom: 10px;
+    
 }
 .name{
     font-size: 1.5rem;
@@ -52,4 +57,73 @@ article{
     border: 0px;
     padding: 10px;
     border-radius: 10px;
+}
+
+.main_image{
+    margin-top: 10px;
+    transition: all ease-in-out 1s;
+
+}
+
+article:hover{
+    background-color: rgb(21, 80, 4);
+}
+.main_image:hover{
+    transform: scale(1.2);
+}
+
+section{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+}
+
+/* ##Device = Desktops ##Screen = 1281px to higher resolution desktop */
+@media (min-width: 1281px) {
+
+    /* code in this block will be applied only if device width>1281 */
+    section{
+        grid-template-columns: repeat(4,1fr);
+    }
+}
+
+/* ##Device = Laptops, Desktops ##Screen = B/w 1025px to 1280px*/
+@media (min-width: 1025px) and (max-width: 1280px) {
+    /* code in this block will be applied only if device */
+    section{
+        grid-template-columns: repeat(4,1fr);
+    }
+}
+
+/* ##Device = Tablets, Ipads (portrait) ##Screen = B/w 768px to 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* code in this block will be applied only if device width>768 and <1024 */
+    section{
+        grid-template-columns: repeat(3,1fr);
+    }
+    
+}
+
+/* ##Device = Low Resolution Tablets,  ##Screen = B/w 481px to 767px */
+@media (min-width: 481px) and (max-width: 767px) {
+    /* code in this block will be applied only if device width>481 and <767 */
+    section{
+        grid-template-columns: repeat(2,1fr);
+    }
+    
+}
+
+/*  ##Device = Most of the Smartphones Mobiles (Portrait) ##Screen = B/w 320px to 479px */
+@media (min-width: 320px) and (max-width: 480px) {
+    /* code in this block will be applied only if device width>320 and <480 */
+    section{
+        grid-template-columns: 1fr;
+
+    }
+    article{
+     margin-left: 5%;
+    }
+    .name{
+        font-size: 1.5rem;
+    }
 }
