@@ -1,0 +1,32 @@
+1)   design web page which should display product. 
+                each product should have name, price, description, photo 
+                display 
+                    6 product on extra large screen
+                    4 product on large screen
+                    3 product on medium screen
+                    2 product on small screen
+                    1 product on extra small screen
+
+            display 6 products.  
+
+2)   design web page which should display Cricket Players. 
+                each Player should have name, dob, matches, runs, balls, 100s and 50s 
+                display 
+                    4 Player on extra large screen
+                    4 Player on large screen
+                    3 Player on medium screen
+                    2 Player on small screen
+                    1 Player on extra small screen
+
+            display 11 players.
+          
+3)   design web page which should display Tourist  Destination in india . 
+                each Destination should have name, state, time to visit, photo & description
+                display 
+                    4 Destination on extra large screen
+                    4 Destination on large screen
+                    3 Destination on medium screen
+                    2 Destination on small screen
+                    1 Destination on extra small screen
+
+            display 24 such Destinations.
