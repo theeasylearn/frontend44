@@ -22,7 +22,7 @@ https://www.iana.org/assignments/media-types/media-types.xhtml#application
 for random images 
 https://picsum.photos/
 example 
- <img src="https://picsum.photos/300" />
+<img src="https://picsum.photos/300" />
 
  for box shadow example 
  https://getcssscan.com/css-box-shadow-examples
