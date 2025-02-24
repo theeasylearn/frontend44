@@ -1,0 +1,50 @@
+Sites 
+---------------------
+https://vidhisgarden.in/
+
+http://www.hyderabadinursery.in/
+
+https://divyafarmandnursery.com/
+
+Pages
+   Home 
+   Header
+     Menu 
+        Logo 
+        Links 
+        Mobile
+   Slider With information (Carosel)
+   Products 
+   Services
+   Testimonials 
+   Contact us 
+
+    Footer
+     Logo 
+     Business Name 
+     Address
+     Links
+     Whats up button 
+     social media icon 
+   About us 
+     About your organiztion 
+     Why choose us 
+     Brief information about product & services 
+     Call us button 
+   Contact us 
+     Business Address
+     Contact us form 
+     Map 
+
+   Plants 
+        Categories 
+         Product 
+            Name 
+            Photo 
+         Product Detail 
+    http://www.hyderabadinursery.in/nursery-plants.htm
+   Services 
+   
+   Gallary
+   Videos
+   FAQ
