@@ -8,16 +8,16 @@ https://divyafarmandnursery.com/
 
 Pages
    Home 
-   Header
-     Menu 
-        Logo 
-        Links 
-        Mobile
-   Slider With information (Carosel)
-   Products 
-   Services
-   Testimonials 
-   Contact us 
+      Header
+      Menu 
+         Logo 
+         Links 
+         Mobile
+      Slider With information (Carosel)
+      Products 
+      Services
+      Testimonials 
+      Contact us 
 
     Footer
      Logo 
@@ -35,7 +35,6 @@ Pages
      Business Address
      Contact us form 
      Map 
-
    Plants 
         Categories 
          Product 
@@ -44,7 +43,16 @@ Pages
          Product Detail 
     http://www.hyderabadinursery.in/nursery-plants.htm
    Services 
-   
-   Gallary
+      Photo 
+      Name 
+        Service Detail 
+   Gallery
+      Photo 
+      Description 
+      When user click on photo it should zoom 
    Videos
+      Video 
+      Title 
    FAQ
+      Question & answers 
+      Accordion
