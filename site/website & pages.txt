@@ -13,7 +13,7 @@ Pages
          Logo 
          Links 
          Mobile
-      Slider With information (Carosel)
+      Slider With information (Carousel)
       Products 
       Services
       Testimonials 
