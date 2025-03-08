@@ -18,6 +18,7 @@
 </head>
 
 <body>
+    <div id="google_translate_element"></div>
     <div class="em40_header_area_main">
         <div class="gaten_header_top_two top_cr_style5 top_crt_style">
             <div class="container">
@@ -106,6 +107,7 @@
             </div>
         </div>
     </div>
+
     <!-- mobile menu -->
     <div class="mobile_logo_area">
         <div class="container">
@@ -235,21 +237,21 @@
                 <div class="col-8">
                     <h1>why choose us</h1>
                     <p>
-                        <b> 1. Award-Winning Excellence</b> <br/>
+                        <b> 1. Award-Winning Excellence</b> <br />
 
                         We have been honored with prestigious awards, including Best Nursery in Gujarat 2024 and Best
                         Nursery in India 2024, recognizing our dedication to quality and innovation.
                     </p>
 
                     <p>
-                        <b>2. Extensive Plant Collection</b> <br/>
+                        <b>2. Extensive Plant Collection</b> <br />
 
                         Our nursery boasts a wide range of plants, from indigenous varieties to rare and exotic species,
                         catering to every gardening need.
                     </p>
 
                     <p>
-                        <b>3. Expert Guidance & Support</b> <br/>
+                        <b>3. Expert Guidance & Support</b> <br />
 
                         Our team of horticulturists and gardening experts provides personalized advice to help you
                         select
@@ -257,21 +259,21 @@
                     </p>
 
                     <p>
-                        <b>4. Quality Assurance</b> <br/>
+                        <b>4. Quality Assurance</b> <br />
 
                         We prioritize the health and sustainability of our plants, offering only the best-quality,
                         disease-free specimens nurtured with the utmost care.
                     </p>
 
                     <p>
-                        <b>5. Customer-Centric Approach</b> <br/>
+                        <b>5. Customer-Centric Approach</b> <br />
 
                         Your satisfaction is our priority. We focus on delivering exceptional service, whether you are
                         visiting our nursery or seeking expert consultation online.
                     </p>
 
                     <p>
-                        <b>6. Landscaping & Gardening Solutions</b> <br/>
+                        <b>6. Landscaping & Gardening Solutions</b> <br />
 
                         Beyond just selling plants, we offer complete landscaping solutions, garden setup assistance,
                         and
@@ -282,27 +284,40 @@
                     <img src="assets/images/why-choose-us.webp" class="img-fluid">
                 </div>
             </div>
-            <hr/>
+            <hr />
             <div class="row mt-5">
                 <div class="col-12">
                     <h1>Products & Services</h1>
-                    <p>  
-                        Our nursery offers a wide variety of plants to suit every gardening need. From <b>Exotic Bonsai</b> and <b>Succulents</b> for unique aesthetics to <b>Flower Plants</b>, <b>Fruit Plants</b>, and <b>Indoor Plants</b> for beauty and functionality, we have it all. We also provide <b>Lawn Ground Covers</b>, <b>Palm Plants</b>, <b>Roadside Timber Plants</b>, <b>Seasonal Plants</b>, and <b>Shrub Plants</b> for landscaping and outdoor spaces. Whether you're looking to create a lush garden, a home orchard, or enhance your indoor décor, our diverse plant collection caters to all preferences and environments.  
-                        </p>  
-                      
-                        <p>  
-                        To complement your gardening journey, we offer a range of <b>Pots & Planters</b>, including durable <b>PVC Pots</b>, lightweight <b>FRP Pots</b>, seamless <b>Rotomould Pots</b>, and stylish <b>Ceramic Pots</b>. For maintaining your garden, we supply essential <b>Garden Tools & Machinery</b> like <b>Brush Cutters</b>, <b>Drip Irrigation Kits</b>, <b>Pruners</b>, and <b>Ride-On Lawn Mowers</b>. Additionally, we provide <b>Plant Growth Promoters</b> such as <b>Cocopeat Powder</b>, <b>Vermicompost Fertilizer</b>, and <b>Liquid Growth Solutions</b> to ensure your plants thrive. Visit us for everything you need to create and maintain a beautiful garden!  
-                        </p>
+                    <p>
+                        Our nursery offers a wide variety of plants to suit every gardening need. From <b>Exotic
+                            Bonsai</b> and <b>Succulents</b> for unique aesthetics to <b>Flower Plants</b>, <b>Fruit
+                            Plants</b>, and <b>Indoor Plants</b> for beauty and functionality, we have it all. We also
+                        provide <b>Lawn Ground Covers</b>, <b>Palm Plants</b>, <b>Roadside Timber Plants</b>,
+                        <b>Seasonal Plants</b>, and <b>Shrub Plants</b> for landscaping and outdoor spaces. Whether
+                        you're looking to create a lush garden, a home orchard, or enhance your indoor décor, our
+                        diverse plant collection caters to all preferences and environments.
+                    </p>
+
+                    <p>
+                        To complement your gardening journey, we offer a range of <b>Pots & Planters</b>, including
+                        durable <b>PVC Pots</b>, lightweight <b>FRP Pots</b>, seamless <b>Rotomould Pots</b>, and
+                        stylish <b>Ceramic Pots</b>. For maintaining your garden, we supply essential <b>Garden Tools &
+                            Machinery</b> like <b>Brush Cutters</b>, <b>Drip Irrigation Kits</b>, <b>Pruners</b>, and
+                        <b>Ride-On Lawn Mowers</b>. Additionally, we provide <b>Plant Growth Promoters</b> such as
+                        <b>Cocopeat Powder</b>, <b>Vermicompost Fertilizer</b>, and <b>Liquid Growth Solutions</b> to
+                        ensure your plants thrive. Visit us for everything you need to create and maintain a beautiful
+                        garden!
+                    </p>
                 </div>
             </div>
             <div class="row mt-5">
                 <div class="col-12">
                     <a href="tel:+919662512857">
-                        <button  class="btn btn-success btn-lg shadow">
-                         <h2 class="text-white">Call us now</h2>
+                        <button class="btn btn-success btn-lg shadow">
+                            <h2 class="text-white">Call us now</h2>
                         </button>
-                      </a>
-                      
+                    </a>
+
                 </div>
             </div>
         </div>
@@ -415,6 +430,13 @@
             </div>
         </div>
     </div>
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        }
+    </script>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <!-- Include All JS -->
     <script src="assets/js/vendor/jquery-3.5.1.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
