@@ -1,0 +1,7 @@
+1) create web page which has 4 button. 
+    facebook, instagram, x, youtube  
+    when user click on button confirm is he sure? if yes open particular website 
+
+2) create web page that will print multiplication in reverse using while loop 
+
+3) create calendar for march 2025 using javascript

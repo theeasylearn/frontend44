@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Multiplication table</h1>
+    <hr />
+
+    <script>
+        var number = parseInt(prompt("Enter number", 1));
+        var table = `<table cellpadding="10" align="center" border="1">`;
+        var output = '';
+        for (var multiplier = 1; multiplier <= 10; multiplier++) {
+            var result = number * multiplier;
+            output = output + `<tr>
+            <td>${number}</td>
+            <td>x</td>
+            <td>${multiplier}</td>
+            <td>=</td>
+            <td>${result}</td>
+        </tr>`;
+        }
+        document.write(table + output + "</table>");
+    </script>
+</body>
+
+</html>
