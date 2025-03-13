@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>how to use decision making in javascript?</h1>
+    <script>
+        function showMovies()
+        {
+            document.write("Sholay, Dhoom 2, War, Gadar 2, Pathaan");
+            document.write("<br /> Baaghi, Singham, Krrish, Agneepath, Ek Tha Tiger");
+        }
+        function showCartoon()
+        {
+            document.write("Chhota Bheem, Motu Patlu, Shinchan, Doraemon");
+            document.write("<br/> Tom and Jerry, Oggy and the Cockroaches, Ninja Hattori, Pokemon, Ben 10, Dragon Ball Z");
+        }
+        var age = parseInt(prompt("What is your age", '18'));
+        document.write((age>=18)?showMovies():showCartoon());
+    </script>
+</body>
+
+</html>
