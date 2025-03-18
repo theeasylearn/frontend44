@@ -1,37 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-     <h1>Document Object</h1>
-     <table border="2px" cellpadding="10px">
+    <h1>Document Object</h1>
+    <table border="1" align="center" width="90%" cellpadding="10">
         <tr>
-            <td id="td1"></td>
-            <td id="td2"></td>
-            <td id="td3"></td>
-            <td id="td4">
-                <input type="text" id="t" value="gxgfhg">
-                <p id="details">Empty</p>
-            </td>
+            <td width="33%" id="gujarati"></td>
+            <td width="33%" id="hindi"></td>
+            <td width="33%" id="mix">Jai Hind</td>
         </tr>
-     </table>
-     <script>
-        var fname ="sdfghgn";
-        document.getElementById('td1').innerHTML = fname;  //set value
-        var lname ="sdf";
-        document.getElementById('td2').innerHTML = lname; // set value
+    </table>
+    <script>
+        var anthem_gujarati = `જન ગણ મન અધિનાયક જય હે
+        ભારત ભાગ્ય વિધાતા
+        પંજાબ સિંધુ ગુજરાત મરાઠા
+        દ્રાવિડ ઉત્કલ બંગ
+        વિંધ્ય હિમાચલ યમુના ગંગા
+        ઉચ્છલ જલધિ તરંગ
+        તવ શુભ નામે જાગે
+        તવ શુભ આશિષ માંગે
+        ગાહે તવ જય ગાથા
+        જન ગણ મંગલ દાયક જય હે
+        ભારત ભાગ્ય વિધાતા
+        જય હે, જય હે, જય હે
+        જય જય જય જય હે!`;
 
-        var temp1 = document.getElementById('td1').innerHTML; // get value
-        var temp2 = document.getElementById('td2').innerHTML; // get value
-       
-        document.getElementById('td3').innerHTML = temp1 + " <br> " +temp2;
+        var anthem_hindi = `जन-गण-मन अधिनायक जय हे
+        भारत भाग्य विधाता
+        पंजाब-सिंधु-गुजरात-मराठा
+        द्राविड़-उत्कल-बंग
+        विंध्य हिमाचल यमुना गंगा
+        उच्छल जलधि तरंग
+        तव शुभ नामे जागे
+        तव शुभ आशिष मांगे
+        गाहे तव जय गाथा
+        जन-गण-मंगलदायक जय हे
+        भारत भाग्य विधाता
+        जय हे, जय हे, जय हे
+        जय जय जय जय हे!`;
+        
+        document.getElementById('gujarati').innerHTML = anthem_gujarati;
+        document.getElementById('hindi').innerHTML = anthem_hindi;
+        document.getElementById('mix').innerHTML =  document.getElementById('gujarati').innerHTML + "<hr/>" + document.getElementById('hindi').innerHTML;
 
-        var detail =document.getElementById('t').value;  // get value
-        document.getElementById('details').innerHTML = detail;
-        document.getElementById('t').value ='jhgfd';
-     </script>
+    </script>
 </body>
+
 </html>

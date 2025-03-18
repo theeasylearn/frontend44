@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table width="80%" border="1" cellpadding="10" align="center">
+        <tr>
+            <td width="33.33%">
+                <input type="number" id="num1" value="10" />
+            </td>
+            <td width="33.33%">
+                <input type="number" id="num2" value="3" />
+            </td>
+            <td width="33.33%"></td>
+        </tr>
+        
+    </table>
+    <table width="80%" border="1" cellpadding="10" align="center">
+        <tr>
+            <td width="25%" id="add"></td>
+            <td width="25%" id="sub"></td>
+            <td width="25%"></td>
+            <td width="25%"></td>
+        </tr>
+        
+    </table>
+    <script>
+        var num1 = document.getElementById('num1').value;
+        var num2 = document.getElementById('num2').value;
+        console.log(num1,num2);
+        //convert num1 and num2 in integer because input is always string
+        num1 = parseInt(num1);
+        num2 = parseInt(num2);
+        var addition = num1 + num2;
+        var subtraction = num1 - num2;
+        document.getElementById('add').innerHTML = addition;
+        document.getElementById('sub').innerHTML = subtraction;
+    </script>
+</body>
+</html>
