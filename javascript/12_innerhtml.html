@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h1>Document Object</h1>
+     <table border="2px" cellpadding="10px">
+        <tr>
+            <td id="td1"></td>
+            <td id="td2"></td>
+            <td id="td3"></td>
+            <td id="td4">
+                <input type="text" id="t" value="gxgfhg">
+                <p id="details">Empty</p>
+            </td>
+        </tr>
+     </table>
+     <script>
+        var fname ="sdfghgn";
+        document.getElementById('td1').innerHTML = fname;  //set value
+        var lname ="sdf";
+        document.getElementById('td2').innerHTML = lname; // set value
+
+        var temp1 = document.getElementById('td1').innerHTML; // get value
+        var temp2 = document.getElementById('td2').innerHTML; // get value
+       
+        document.getElementById('td3').innerHTML = temp1 + " <br> " +temp2;
+
+        var detail =document.getElementById('t').value;  // get value
+        document.getElementById('details').innerHTML = detail;
+        document.getElementById('t').value ='jhgfd';
+     </script>
+</body>
+</html>
