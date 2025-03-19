@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table width="80%" border="1" cellpadding="10" align="center">
+        <tr>
+            <td width="33.33%">
+                <input type="number" id="num1" value="10" />
+            </td>
+            <td width="33.33%">
+                <input type="number" id="num2" value="3" />
+            </td>
+            <td width="33.33%">
+                <button type="button" onclick="add();">Add</button>
+                <button type="button" onclick="sub();">Sub</button>
+                <button type="button" onclick="mul();">Mul</button>
+                <button type="button" onclick="div();">Div</button>
+            </td>
+        </tr>
+
+    </table>
+    <table width="80%" border="1" cellpadding="10" align="center">
+        <tr>
+            <td width="25%" id="add"></td>
+            <td width="25%" id="sub"></td>
+            <td width="25%" id="mul"></td>
+            <td width="25%" id="div"></td>
+        </tr>
+
+    </table>
+    <script>
+        //2nd technique 
+        let add = function () {
+            //alert('add button clicked...');
+            let num1 = parseInt(document.getElementById('num1').value);
+            let num2 = parseInt(document.getElementById('num2').value);
+            let result = num1 + num2;
+            alert(result);
+            document.getElementById('add').innerHTML = result;
+        }
+        let sub = function () {
+            //alert('sub button clicked...');
+
+        }
+        let mul = function () {
+            //alert('mul button clicked...');
+
+        }
+
+        let div = function () {
+            //alert('div button clicked...');
+
+        }
+    </script>
+</body>
+
+</html>
