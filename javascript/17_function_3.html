@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>3rd way to create function</h1>
+    <table border="1" align="center" cellpadding="10">
+        <tr>
+            <td>Enter Number</td>
+            <td>
+                <input type="number" id="num" required />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="square" onclick="squareClick();" />
+            </td>
+            <td>
+                <input type="button" value="qube" onclick="qubeClick();" />
+            </td>
+        </tr>
+        <tr>
+            <td id="td1"></td>
+            <td id="td2"></td>
+        </tr>
+    </table>
+    <script>
+        //arrow function 
+        let getSquare = (num) => num * num;
+        let getQube = num => num * num * num;
+        //2nd technique
+        let squareClick = function () {
+            //alert('hi');
+            let numValue = document.getElementById('num').value;
+            console.log(numValue);
+            if (numValue === "") {
+                alert("either input is empty not it is not a number");
+            }
+            else {
+                let num = parseInt(numValue);
+                let square = getSquare(num); //calling arrow function
+                //alert(square);
+                document.getElementById('td1').innerHTML = square;
+            }
+
+        }
+        let qubeClick = function () {
+            let numValue = document.getElementById('num').value;
+            console.log(numValue);
+            if (numValue === "") {
+                alert("either input is empty not it is not a number");
+            }
+            else {
+                let num = parseInt(numValue);
+                let qube = getQube(num);
+                document.getElementById('td2').innerHTML = qube;
+            }
+        }
+    </script>
+</body>
+
+</html>

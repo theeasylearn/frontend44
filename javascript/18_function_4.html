@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>concept of global and local variable</h1>
+    <table border="1" align="center" cellpadding="10">
+        <tr>
+            <td>Available Balance <span id="amount"></span></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="Pay 1000"  onclick="decreaseBalance(1000)"/>
+                <input type="button" value="Pay 500"  onclick="decreaseBalance(500)"/>
+                <input type="button" value="Pay 200"  onclick="decreaseBalance(200)"/>
+                <input type="button" value="Pay 100"  onclick="decreaseBalance(100)"/>
+            </td>
+        </tr>
+    </table>
+    <script>
+        var balance = 10000;
+        function updateBalance()
+        {
+            document.getElementById('amount').innerHTML = balance;
+        }
+        updateBalance();
+        function decreaseBalance(rupees)
+        {
+            //make sure balance does not go below 0
+            balance = balance - rupees;
+            updateBalance();
+        }
+    </script>
+</body>
+</html>
