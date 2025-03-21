@@ -7,3 +7,8 @@
 3) create calendar for march 2025 using javascript
 
 5) create webpage that has 7 tr and 4 td tag in each tr. display one name of indian state in each td tag using javascript. use document.getElementById
+
+-----------------------------------------------------------------------------
+
+Create SWP Calculator 
+Create SIP Calculator 

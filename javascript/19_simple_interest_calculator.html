@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td {
+            text-align: center;
+        }
+
+        #amount,
+        #rate,
+        #year {
+            width: 200px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="success.html" method="post" onsubmit="return calculateInterest();">
+        <table border="1" cellpadding="10" align=center width="50%">
+            <tr>
+                <td>
+                    <h1>Simple Interest Calculator</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="number" id="amount" placeholder="Amount" min="1" required />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="number" id="rate" placeholder="rate" min="1" max="24" required />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="number" id="year" placeholder="year" min="1" required />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Calculate Interest" />
+                    <input type="reset" value="Clear all" />
+                </td>
+            </tr>
+            <tr>
+                <td id="output">
+
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script src="common.js"></script>
+    <script>
+        //arrow function
+        let calculateInterest = () => {
+            let amount = parseInt(getValue('amount'));
+            let rate = parseInt(getValue('rate'));
+            let year = parseInt(getValue('year'));
+            console.log(amount,rate,year);
+            let interest = (amount * rate * year) / 100;
+            setHTML('output',"Interest = " + interest);
+            return false; //required to stop submitting input to other page
+        }
+    </script>
+</body>
+
+</html>
