@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* select all child of data */
+        #data>* {
+            display: block;
+            width: 90%;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>S.W.P Calculator</h1>
+    <form action="success.html" method="post" onsubmit="return calculateSWP();">
+        <table border="2" align="center" cellpadding="10" cellspacing="5" width="60%">
+            <tr>
+                <td colspan="3" align="center" id="data">
+                    <input type="number" id="investment" placeholder="total Investment" required />
+                    <input type="number" id="withdrawal" placeholder="per month Withdrawal " required />
+                    <input type="number" id="rate" placeholder="Expected Return per rate" required />
+                    <input type="number" id="year" placeholder="Investment year" />
+                    <input type="submit" value="Calculate" />
+                </td>
+
+            </tr>
+            <tr>
+                <td width="33%" id="td1"></td>
+                <td width="33%" id="td2"></td>
+                <td width="33%" id="td3"></td>
+            </tr>
+        </table>
+        <script src="common.js"></script>
+        <script>
+
+            function calculateSWP() {
+                let investment = parseFloat(getValue('investment'));
+                let withdrawal = parseFloat(getValue('withdrawal'));
+                let rate = parseFloat(getValue('rate')) / 100; // Convert percentage to decimal
+                let years = getValue('year');
+                let finalCorpus;
+                if(years !== '')
+                    finalCorpus = calculateFinalCorpus(investment, withdrawal, rate, parseFloat(years));
+                else 
+                    finalCorpus = calculateFinalCorpus(investment, withdrawal, rate);
+                let totalInvestment = investment;
+                let totalWithdrawal = withdrawal * 12 * years;
+            
+
+                console.log("Total Investment:", totalInvestment.toFixed(2));
+                console.log("Total Withdrawal:", totalWithdrawal.toFixed(2));
+                console.log("Final corpus after withdrawals:", finalCorpus.toFixed(2));
+                setHTML('td1', totalInvestment.toFixed(2));
+                setHTML('td2', totalWithdrawal.toFixed(2));
+                setHTML('td3', finalCorpus.toFixed(2));
+
+                return false;
+            }
+
+            function calculateFinalCorpus(investment, withdrawal, rate, years=10.0) {
+                let n = 12; // Monthly compounding
+                let t = years * n; // Total months
+                let r = rate / n;
+
+                let corpus = investment;
+                for (let i = 0; i < t; i++) {
+                    corpus = (corpus - withdrawal) * (1 + r);
+                    if (corpus < 0) break; // Stop if funds deplete
+                }
+
+                return corpus;
+            }
+
+        </script>
+    </form>
+</body>
+
+</html>
