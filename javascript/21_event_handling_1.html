@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table width="80%" border="1" cellpadding="10" align="center">
+        <tr>
+            <td width="33.33%">
+                <input type="number" id="num1" value="10" />
+            </td>
+            <td width="33.33%">
+                <input type="number" id="num2" value="3" />
+            </td>
+            <td width="33.33%">
+                <button type="button" id="add" onclick="calculate(this.id)">Add</button>
+                <button type="button" id="sub" onclick="calculate(this.id)">Sub</button>
+                <button type="button" id="mul" onclick="calculate(this.id)">Mul</button>
+                <button type="button" id="div" onclick="calculate(this.id)">Div</button>
+            </td>
+        </tr>
+
+    </table>
+    <table width="80%" border="1" cellpadding="10" align="center">
+        <tr>
+            <td width="25%" id="addition"></td>
+            <td width="25%" id="subtraction"></td>
+            <td width="25%" id="multiplication"></td>
+            <td width="25%" id="division"></td>
+        </tr>
+
+    </table>
+    <script src="common.js"></script>
+    <script>
+        function calculate(buttonId) {
+            console.log(buttonId);
+            let num1 = getValue('num1');
+            let num2 = getValue('num2');
+            if (num1 === '' || num2 === '') { 
+                alert('both input is required.');
+            }
+            else 
+            {
+                num1 = parseInt(num1);
+                num2 = parseInt(num2);
+
+            }
+            if(buttonId === 'add')
+            {
+                setHTML('addition',num1+num2);
+                
+            }
+            else if(buttonId === 'sub')
+            {
+                setHTML('subtraction',num1 - num2);
+            }
+            else if(buttonId === 'mul')
+            {
+                setHTML('multiplication',num1 * num2);
+            }
+            else if(buttonId === 'div')
+            {
+                setHTML('division',num1/num2);
+            }
+            console.log(num1, num2);
+        }
+    </script>
+</body>
+
+</html>
