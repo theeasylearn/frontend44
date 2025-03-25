@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            font-size: 100px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 align="center">2nd method of event handling</h1>
+    <h2 align="center">Tic tac game</h2>
+    <table align="center" cellpadding="10" cellspacing="10" border="1" width="50%">
+        <tr>
+            <td>
+                <input type="button" value="-" />
+            </td>
+            <td>
+                <input type="button" value="-" />
+            </td>
+            <td>
+                <input type="button" value="-" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="-" />
+            </td>
+            <td>
+                <input type="button" value="-" />
+            </td>
+            <td>
+                <input type="button" value="-" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="-" />
+            </td>
+            <td>
+                <input type="button" value="-" />
+            </td>
+            <td>
+                <input type="button" value="-" />
+            </td>
+        </tr>
+    </table>
+    <script>
+        var buttons = document.getElementsByTagName('input'); //return HTMLCollection(array)
+        console.log(buttons);
+        var letter = '0';
+        for(let index=0;index<buttons.length;index++)
+        {
+            buttons[index].onclick = function () {
+                this.value = letter;
+                if(letter === '0')
+                    letter = 'X';
+                else 
+                    letter = '0';
+            this.onclick = null;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

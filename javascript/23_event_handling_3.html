@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #red {
+            background-color: red;
+            height: 450px;
+            width: 80%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        #green {
+            background-color: green;
+            height: 300px;
+            width: 80%;
+            margin: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        #blue {
+            background-color: blue;
+            height: 150px;
+            width: 80%;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>3rd way of event handling</h1>
+    <div id="red">
+        <div id="green">
+            <div id="blue">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        var divs = document.getElementsByTagName('div');
+        console.log(divs);
+        for (let index = 0; index < divs.length; index++) {
+            divs[index].addEventListener('click', function () {
+                alert(this.id);
+            }, true);
+        }
+    </script>
+</body>
+
+</html>
