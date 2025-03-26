@@ -12,3 +12,13 @@
 
 Create SWP Calculator 
 Create SIP Calculator 
+
+------------------------------------------------------------------------------
+Create an example of javascript which has object. 
+object should have property to store 
+    hour, minutes, seconds, day, month, year 
+object should have function 
+    printDate()
+    printTime()
+
+    

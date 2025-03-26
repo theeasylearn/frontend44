@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Creating Object using 1st method</h1>
+    <script>
+        //create object
+        var MyMath = {
+            //property variable / State
+            num1:10,
+            num2:3,
+            add:function()
+            {
+                document.write("addition = ",this.num1 + this.num2);
+            },
+            sub:function()
+            {
+                document.write("<br/>Subtraction = ",this.num1 - this.num2);
+            },
+            mul:function()
+            {
+                document.write("<br/>Multiplication = ",this.num1 * this.num2);
+            },
+            div:function()
+            {
+                document.write("<br/>Division = ",this.num1 / this.num2);
+            }
+        }
+        MyMath.add();
+        MyMath.sub();
+        MyMath.mul();
+        MyMath.div();
+    </script>
+</body>
+</html>
