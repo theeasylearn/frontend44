@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>2nd method to create object</h2>
+    <hr/>
+
+    <script>
+        //create object using 2nd technique 
+        let today = new Object({
+            day:27,
+            month:3,
+            year:2025,
+            hour:19,
+            minute:3,
+            second:15,
+            printDate:function()
+            {
+                //27-03-2025
+                //local variable 
+                let temp = this.day + "-" + this.month + "-" + this.year;
+                console.log(temp);
+                document.write(temp);
+            },
+            printTime:function()
+            {
+                let temp = this.hour + ":" + this.minute; 
+                console.log(temp);
+                document.write("<br/>" + temp);
+            }
+        });
+
+        //create object variable 
+        let t1 = today;
+        t1.printDate();
+        t1.printTime();
+    </script>
+</body>
+</html>

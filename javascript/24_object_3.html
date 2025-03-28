@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sales Table</title>
+</head>
+
+<body>
+    <table border="1" width="100%" cellpadding="10">
+        <tr>
+            <td width="30%" valign="top">
+                <form action="" onsubmit="return AddItem();">
+                    <table border="1" width="100%" cellpadding="10">
+                        <tr>
+                            <td bgcolor="lightgrey">Enter Item Detail</td>
+                        </tr>
+                        <tr>
+                            <td><input id="name" type="text" placeholder="Name" required /></td>
+                        </tr>
+                        <tr>
+                            <td><input id="price" type="number" placeholder="Price" required /></td>
+                        </tr>
+                        <tr>
+                            <td><input id="quantity" type="number" placeholder="Quantity" required /></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="submit">Add Item</button>
+                                <button type="reset">Clear all</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </td>
+            <td width="70%" valign="top">
+                <table border="1" width="100%" cellpadding="10">
+                    <thead bgcolor="lightgrey">
+                        <tr>
+                            <th>Name</th>
+                            <th>Qty</th>
+                            <th>Price</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sales">
+
+                    </tbody>
+                </table>
+                <table border="1" width="100%">
+                    <tr>
+                        <th align="right">Total Sales <span id="total"></span></th>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <script>
+        //create template function 
+        function Product(name, price, quantity)
+        {
+            //create property variable
+            this.name = name,
+                this.price = price,
+                this.quantity = quantity,
+                this.addRow = function () {
+                    let tr = ` <tr>
+                            <td>${this.name}</td>
+                            <td>${this.price}</td>
+                            <td>${this.quantity}</td>
+                            <td>${this.price * this.quantity}</td>
+                        </tr>`;
+                    document.getElementById('sales').innerHTML +=tr;
+                }
+        }
+        function AddItem() {
+            //alert('item added...');
+            //object variable
+            var name = document.getElementById('name').value;
+            var price = document.getElementById('price').value;
+            var quantity = document.getElementById('quantity').value;
+            var p1 = new Product(name,price,quantity);
+            document.getElementById('name').value = "";
+            document.getElementById('price').value = "";
+            document.getElementById('quantity').value = "";
+            p1.addRow();
+            return false;
+        }
+    </script>
+</body>
+
+</html>
