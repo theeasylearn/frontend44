@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>4th way to create class</h1>
+    <hr/>
+
+<script>
+    //create class (ES6 way)
+    class Student 
+    {
+        constructor(name,gender,dob,fees)
+        {
+            //property variables/state
+            this.name = name;
+            this.gender = gender;
+            this.dob = dob;
+            this.fees = fees;
+        }
+        display()
+        {
+            document.write("<br/> Name " + ((this.gender === 'm') ? "Mr " : "Miss/Mrs ") + this.name + " Birth Date " + this.dob + " fees " + this.fees);
+        }
+    }
+
+    //create object 
+    var s1 = new Student('Diya Patel','f','29-12-2023',5000); //constructor will be called automatically
+    s1.display();
+
+    var s2 = new Student('Jeet Patel','m','10-04-2000',15000);
+    s2.display();
+
+
+    var s3 = new Student('Hemil Patel','m','10-04-2011',14500);
+    s3.display();
+</script>
+</body>
+</html>
