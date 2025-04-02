@@ -10,38 +10,38 @@
 </head>
 
 <body>
-    <div class="container-fluid bg-light p-3">
+    <div class="container-fluid bg-light p-3 mb-3 shadow">
         <div class="row">
             <div class="col-12">
                 <!-- inline form  -->
-                <form class="row row-cols-lg-auto g-3 justify-content-evenly">
+                <form class="row row-cols-lg-auto g-3 justify-content-evenly" onsubmit="return AddStudent();">
                     <!-- Name -->
                     <div class="col-12">
                         <label class="visually-hidden" for="name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Name" required>
+                        <input type="text" class="form-control" id="name" placeholder="Name" required />
                     </div>
                     <span class="d-flex justify-content-start">
                         <span class="fw-bold">Gender</span> &nbsp;&nbsp;&nbsp;
                         <!-- Gender -->
                         <div class="col-12">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="male" value="male"
-                                    required>
+                                <input class="form-check-input" type="radio" name="gender" id="male" value="m"
+                                    required />
                                 <label class="form-check-label" for="male">Male</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="female" value="female"
-                                    required>
+                                <input class="form-check-input" type="radio" name="gender" id="female" value="f"
+                                    required />
                                 <label class="form-check-label" for="female">Female</label>
                             </div>
                         </div>
                     </span>
                     <!-- Birth Date -->
                     <span class="d-flex justify-content-start">
-                        dob 
+                        dob
                         <div class="col-12">
                             <label class="visually-hidden" for="birthdate">Birth Date</label>
-                            <input type="date" class="form-control" id="birthdate" required>
+                            <input type="date" class="form-control" id="birthdate" required />
                         </div>
                     </span>
 
@@ -49,12 +49,12 @@
                     <div class="col-12">
                         <label class="visually-hidden" for="fees">Fees</label>
                         <input type="number" class="form-control" id="fees" placeholder="Fees" min="0" step="0.01"
-                            required>
+                            required />
                     </div>
 
                     <!-- Submit Button -->
                     <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Add Student</button>
                     </div>
                 </form>
                 <!-- inline form  -->
@@ -75,17 +75,8 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Aakash Patel</td>
-                            <td>Male</td>
-                            <td>15-08-1985</td>
-                            <td>9999</td>
-                            <td>
-                                <button type="button" class="btn btn-danger">Delete</button>
-                            </td>
-                        </tr>
+                    <tbody id="output">
+
 
                     </tbody>
                 </table>
@@ -93,6 +84,8 @@
         </div>
     </div>
     <script>
+        var count = 1; //variable to keep track of number of students added
+
         //create class (ES6 way)
         class Student {
             constructor(name, gender, dob, fees) {
@@ -101,15 +94,56 @@
                 this.gender = gender;
                 this.dob = dob;
                 this.fees = fees;
+                console.log(this);
+            }
+            deleteStudent()
+            {
+                alert('hi');
+                // var output = document.getElementById('output');
+                // //console.log(this.parentNode.parentNode);
+                // var row = this.parentNode.parentNode;
+                // output.removeChild(row);
+                // count--;
             }
             display() {
-                document.write("<br/> Name " + ((this.gender === 'm') ? "Mr " : "Miss/Mrs ") + this.name + " Birth Date " + this.dob + " fees " + this.fees);
+                // document.write("<br/> Name " + ((this.gender === 'm') ? "Mr " : "Miss/Mrs ") + this.name + " Birth Date " + this.dob + " fees " + this.fees);
+                var msg = (this.gender === 'm') ? "Male" : "Female";
+                var output = document.getElementById('output');
+                var row = ` <tr>
+                            <td>${count}</td>
+                            <td>${this.name}</td>
+                            <td>${msg}</td>
+                            <td>${this.dob}</td>
+                            <td>${this.fees}</td>
+                            <td>
+                                <button onclick='this.deleteStudent(this);' type="button" class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>`;
+                output.innerHTML += row;
+                count++;
+                //clear the form fields after adding student
+                document.getElementById('name').value = '';
+                document.getElementById('fees').value = '';
+                document.getElementById('birthdate').value = '';
+                //uncheck the radio buttons
+                document.getElementById('male').checked = false;
+                document.getElementById('female').checked = false;
             }
         }
-
+        function AddStudent() {
+            //alert('hi');
+            var name = document.getElementById('name').value;
+            var fees = document.getElementById('fees').value;
+            var birthdate = document.getElementById('birthdate').value;
+            //create variable gender to store selected gender 
+            var gender = document.querySelector("input[name='gender']:checked").value;
+            //console.log(name,fees,birthdate,gender);
+            var s1 = new Student(name, gender, birthdate, fees); //constructor will be called automatically
+            s1.display();
+            return false;
+        }
         //create object 
-        // var s1 = new Student('Diya Patel','f','29-12-2023',5000); //constructor will be called automatically
-        // s1.display();
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
