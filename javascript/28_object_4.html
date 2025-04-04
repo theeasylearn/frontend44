@@ -79,13 +79,21 @@
 
 
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2">No of students: - <span id="total"></span></td>
+                            <td colspan="2">Male : <span id="mcount">0</span> Female : <span id="fcount">0</span></td>
+                            <td colspan="2">Fees : 0</td>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>
     </div>
     <script>
         var count = 1; //variable to keep track of number of students added
-
+        var maleCount = 0;
+        var femaleCount = 0;
         //create class (ES6 way)
         class Student {
             constructor(name, gender, dob, fees) {
@@ -96,18 +104,36 @@
                 this.fees = fees;
                 console.log(this);
             }
-            deleteStudent()
-            {
-                alert('hi');
-                // var output = document.getElementById('output');
-                // //console.log(this.parentNode.parentNode);
-                // var row = this.parentNode.parentNode;
-                // output.removeChild(row);
-                // count--;
+
+            static deleteStudent(event) {
+                //alert('hi');//
+                let row = event.target.closest("tr"); // Get the closest <tr> ancestor
+                let thirdTd = row.querySelectorAll("td")[2]; // Get th
+                if (thirdTd.innerHTML === 'Female')
+                {
+                    femaleCount--;
+                    document.getElementById('fcount').innerHTML = femaleCount;
+                }
+                else 
+                {
+                    maleCount--;
+                    document.getElementById('mcount').innerHTML = maleCount;
+                }
+                document.getElementById('total').innerHTML = parseInt(document.getElementById('total').innerHTML) - 1;
+                row.remove();
             }
             display() {
                 // document.write("<br/> Name " + ((this.gender === 'm') ? "Mr " : "Miss/Mrs ") + this.name + " Birth Date " + this.dob + " fees " + this.fees);
                 var msg = (this.gender === 'm') ? "Male" : "Female";
+                if (this.gender === 'm') {
+                    maleCount++;
+                    document.getElementById('mcount').innerHTML = maleCount;
+                }
+                else
+                {
+                    femaleCount++;
+                    document.getElementById('fcount').innerHTML = femaleCount;
+                }
                 var output = document.getElementById('output');
                 var row = ` <tr>
                             <td>${count}</td>
@@ -116,10 +142,11 @@
                             <td>${this.dob}</td>
                             <td>${this.fees}</td>
                             <td>
-                                <button onclick='this.deleteStudent(this);' type="button" class="btn btn-danger">Delete</button>
+                                <button onclick='Student.deleteStudent(event);' type="button" class="btn btn-danger">Delete</button>
                             </td>
                         </tr>`;
                 output.innerHTML += row;
+                document.getElementById('total').innerHTML = count;
                 count++;
                 //clear the form fields after adding student
                 document.getElementById('name').value = '';

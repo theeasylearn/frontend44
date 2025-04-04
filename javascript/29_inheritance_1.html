@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Single level inheritance</h1>
+    <hr/>
+    <b>use console</b>
+    <script>
+        //create class 
+        class Person 
+        {
+            constructor(name)
+            {
+                //create property variable 
+                this.name = name;
+                console.log('Person class constructor called....');
+            }
+            walk()
+            {
+                console.log(`${this.name} can walk`);
+            }
+            talk()
+            {
+                console.log(`${this.name} can talk`);
+            }
+
+        }
+        class Student extends Person
+        {
+            constructor(name,language)
+            {
+                super(name); //calling parent class constructor
+                this.language = language;
+                console.log('Student class constructor called....');
+            }
+            read()
+            {
+                console.log(`${this.name} can read ${this.language}`);
+            }
+            write()
+            {
+                console.log(`${this.name} can write ${this.language}`);
+            }
+            whatICanDo()
+            {
+                super.talk();
+                super.walk(); 
+                this.read();
+                this.write();
+            }
+        }   
+
+        //create oboject
+        var s1 = new Student('Diya Patel','Gujarati');
+        s1.whatICanDo();
+
+    </script>
+</body>
+</html>

@@ -21,4 +21,15 @@ object should have function
     printDate()
     printTime()
 
-    
+Exercise 
+----------------------
+1) create single level inheritance 
+    Create class Actor 
+        it has properties like name 
+        methods 
+            Acting 
+    create class Vilan extends Actor class 
+        it has properties like bad habits
+        methods 
+            Fighting 
+            
