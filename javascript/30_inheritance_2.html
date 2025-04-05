@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h1>Multi level inheritance</h1>
+    <hr/>
+    <b>use console</b>
+    <script>
+
+        //base - parent - super class
+        class Shape 
+        {
+            getPi()
+            {
+                let pi = 3.1415;
+                return pi;
+            }
+            getSquare(number)
+            {
+                let square = number * number;
+                return square;
+            }
+        }
+        //derived/child/sub class 
+        class Circle extends Shape
+        {
+            constructor(radius)
+            {
+                super(); 
+                this.radius = radius;
+            }
+            getArea()
+            {
+                let area = super.getPi() * super.getSquare(this.radius);
+                return area;
+            }
+        }
+        class Sphere extends Circle
+        {
+            constructor(radius)
+            {
+                super(radius); 
+            }
+            getSurfaceArea()
+            {
+                let surFaceArea = 4 * super.getArea();
+                return surFaceArea;
+            }
+        }
+
+        //create object 
+        let s1 = new Sphere(100);
+        let temp = s1.getSurfaceArea();
+        console.log("Surface Area = ",temp);
+    </script>
+</body>
+</html>

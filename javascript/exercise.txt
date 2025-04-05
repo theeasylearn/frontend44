@@ -32,4 +32,18 @@ Exercise
         it has properties like bad habits
         methods 
             Fighting 
-            
+
+2) create multi level inheritance
+    create class KB 
+        it has properties bytes 
+        method 
+            getKB()
+     create class MB
+        method 
+            getMB     
+     create class GB
+        method 
+            getGB
+     create class TB
+        method 
+            getTB          
