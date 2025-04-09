@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Array related function</h1>
+    <ol id="output">
+
+    </ol>
+    <script>
+        //create empty array 
+        var players = [];
+        function addAtStart(value) {
+            players.unshift(value);
+        }
+        function addAtEnd(value) {
+            players.push(value);
+        }
+        function deleteAtStart() {
+            players.shift()
+        }
+        function deleteAtEnd() {
+            players.pop();
+        }
+        function display() {
+            let output = document.getElementById('output');
+            let temp = '';
+            // for (let index = 0; index < players.length; index++) {
+            //     temp +=  players[index] + " ";
+            // }
+            // or 
+            players.map(function (item){
+                console.log(item);
+                temp +=  item + " ";
+            });
+            output.innerHTML += "<li>" + temp + "</li>";
+        }
+        addAtEnd('Rohit Sharma');
+        addAtEnd('Ishant Sharma');
+        addAtEnd('Manish Panday');
+        display();
+        addAtStart('Virat Kohli');
+        addAtStart('M. S. Dhoni');
+        addAtStart('R.R. Ashvin');
+        display();
+        deleteAtStart();
+        deleteAtStart();
+        display();
+        deleteAtEnd();
+        deleteAtEnd();
+        display();
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">Player Registration</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="playerForm" onsubmit="return AddPlayer(event);">
+                            <div class="mb-3">
+                                <label for="tshirtNumber" class="form-label">T-Shirt Number</label>
+                                <input type="number" 
+                                       class="form-control" 
+                                       id="tshirtNumber" 
+                                       name="tshirtNumber" 
+                                       required 
+                                       placeholder="Enter t-shirt number">
+                                <div class="invalid-feedback">
+                                    Please enter a t-shirt number.
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="playerName" class="form-label">Player Name</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       id="playerName" 
+                                       name="playerName" 
+                                       required 
+                                       placeholder="Enter player name">
+                                <div class="invalid-feedback">
+                                    Please enter a player name.
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between">
+                                <button id="begin" type="submit" class="btn btn-primary">Add at Beginning</button>
+                                <button id="end" type="submit" class="btn btn-primary">Add at End</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //create empty array 
+        var players = [];
+        function addAtStart(value) {
+            players.unshift(value);
+        }
+        function addAtEnd(value) {
+            players.push(value);
+        }
+        function deleteAtStart() {
+            players.shift()
+        }
+        function deleteAtEnd() {
+            players.pop();
+        }
+        function display() {
+            let output = document.getElementById('output');
+            let temp = '';
+            // for (let index = 0; index < players.length; index++) {
+            //     temp +=  players[index] + " ";
+            // }
+            // or 
+            players.map(function (item){
+                console.log(item);
+                temp +=  item + " ";
+            });
+            output.innerHTML += "<li>" + temp + "</li>";
+        }
+      
+        function AddPlayer(e)
+        {
+            console.log(e.target.id);
+            return false;
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
