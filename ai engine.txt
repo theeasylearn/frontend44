@@ -1,3 +1,11 @@
 1) https://chatgpt.com
-2) https://www.perplexity.ai
+2) https://grok.com
+3) https://blackbox.com
+4) https://deepseek.com 
+
+
+Less reliable 
+1) https://www.perplexity.ai
+
+Image Generate 
 3) ideogram.ai

@@ -9,9 +9,9 @@
 </head>
 
 <body>
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">
                         <h3 class="text-center">Player Registration</h3>
@@ -20,12 +20,8 @@
                         <form id="playerForm" onsubmit="return AddPlayer(event);">
                             <div class="mb-3">
                                 <label for="tshirtNumber" class="form-label">T-Shirt Number</label>
-                                <input type="number" 
-                                       class="form-control" 
-                                       id="tshirtNumber" 
-                                       name="tshirtNumber" 
-                                       required 
-                                       placeholder="Enter t-shirt number">
+                                <input type="number" class="form-control" id="tshirtNumber" name="tshirtNumber" required
+                                    placeholder="Enter t-shirt number">
                                 <div class="invalid-feedback">
                                     Please enter a t-shirt number.
                                 </div>
@@ -33,12 +29,8 @@
 
                             <div class="mb-3">
                                 <label for="playerName" class="form-label">Player Name</label>
-                                <input type="text" 
-                                       class="form-control" 
-                                       id="playerName" 
-                                       name="playerName" 
-                                       required 
-                                       placeholder="Enter player name">
+                                <input type="text" class="form-control" id="playerName" name="playerName" required
+                                    placeholder="Enter player name">
                                 <div class="invalid-feedback">
                                     Please enter a player name.
                                 </div>
@@ -52,7 +44,13 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-9">
+                <div class="row" id="output">
+                   
+                </div>
+            </div>
         </div>
+
     </div>
 
     <script>
@@ -73,20 +71,43 @@
         function display() {
             let output = document.getElementById('output');
             let temp = '';
-            // for (let index = 0; index < players.length; index++) {
-            //     temp +=  players[index] + " ";
-            // }
-            // or 
-            players.map(function (item){
+            
+            players.map(function (item) {
                 console.log(item);
-                temp +=  item + " ";
+                temp += ` <div class="col-md-2">
+                        <div class="card shadow">
+                            <div class="card-body">
+                                <div class="display-1 text-center">${item.number}</div>
+                                <div class="fw-bold text-center">${item.name}</div>
+                            </div>
+                        </div>
+                    </div>`;
             });
-            output.innerHTML += "<li>" + temp + "</li>";
+            output.innerHTML = temp;
         }
-      
-        function AddPlayer(e)
-        {
-            console.log(e.target.id);
+
+        function AddPlayer(e) {
+            
+            let buttonId = e.submitter.id;
+            console.log(buttonId);
+            let tshirtNumber = document.getElementById('tshirtNumber').value;
+            let playerName = document.getElementById('playerName').value;
+            //console.log(tshirtNumber,playerName);
+            //create object
+            let player = {
+                number:tshirtNumber,
+                name: playerName
+            };
+            //console.log(player);
+            if (buttonId === 'begin') {
+                //insert at beginning
+                addAtStart(player);
+            }
+            else if(buttonId === 'end'){
+                //insert at end
+                addAtEnd(player);
+            }
+            display();
             return false;
         }
     </script>
