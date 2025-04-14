@@ -38,7 +38,8 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
     <script>
         //arrow function
         let searchContinents = () => {
@@ -59,13 +60,14 @@
             let output = document.getElementById('output');
             list.map(function (item) {
                 //console.log(item);
+                var {name,flag,continent} = item;
                 temp += `   <div class="col-lg-3 mb-3">
                 <div class="card shadow">
-                    <img src=${item.flag} alt="" class="card-img-top">
+                    <img src=${flag} alt="" class="card-img-top">
                     <div class="card-body">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item fs-4">${item.name}</li>
-                            <li class="list-group-item">${item.continent}</li>
+                            <li class="list-group-item fs-4">${name}</li>
+                            <li class="list-group-item">${continent}</li>
                         </ul>
                     </div>
                 </div>

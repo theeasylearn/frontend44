@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table width="100%" border="1" cellpadding="10">
+        <tr>
+            <td id="fruit"></td>
+            <td id="grain"></td>
+            <td id="kitchen"></td>
+        </tr>
+    </table>
+    <script>
+        //create 3 array 
+        let fruits = ['Banana', 'Mango', 'Pinapple', 'Orange', 'Kiwi'];
+        let grains = ["Rice", "Wheat", "Barley", "Oats", "Maize (Corn)"];
+
+        function showItems(target,list) {
+            let temp = '';
+            list.map(function (item) {
+                temp += item + "<br/>";
+            });
+            document.getElementById(target).innerHTML = temp;
+        }
+        showItems('fruit',fruits);
+        showItems('grain',grains);
+       
+        //es6 spread operator 
+        let newList = [...fruits,...grains];
+        showItems('kitchen',newList); 
+    </script>
+</body>
+
+</html>

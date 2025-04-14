@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table width="100%" border="1" cellpadding="10">
+        <tr>
+            <td id="car1">
+
+            </td>
+            <td id="car2">
+
+            </td>
+            <td id="car3">
+
+            </td>
+        </tr>
+    </table>
+    <script>
+        const car1 = {
+            brand: "Toyota",
+            model: "Camry",
+            year: 2022,
+            color: "White",
+            isElectric: false,
+            engineType: "Hybrid",
+            transmission: "Automatic",
+            mileage: "18 km/l",
+            topSpeed: "210 km/h",
+            horsepower: 203,
+            torque: "250 Nm",
+            seatingCapacity: 5,
+            doors: 4,
+            bootSpace: "427 liters",
+            hasSunroof: true,
+            hasGPS: true,
+            hasBluetooth: true,
+            hasAirbags: true,
+            hasABS: true,
+            tireType: "Radial",
+            wheelSize: "17 inch",
+            groundClearance: "160 mm",
+            length: "4885 mm",
+            width: "1840 mm",
+            height: "1445 mm",
+            weight: "1470 kg",
+            warranty: "3 years",
+            registrationState: "Gujarat"
+        };
+
+        const car2 = {
+            brand: "Honda",
+            model: "Civic",
+            year: 2023,
+            color: "Black",
+            fuelType: "Petrol",
+            price: 1250000
+        };
+        let temp = '';
+        for (let key in car1) {
+            temp += `<b>${key}</b> = ${car1[key]} <br/>`;
+        }
+        document.getElementById('car1').innerHTML = temp;
+
+        temp = '';
+        for (let key in car2) {
+            temp += `<b>${key}</b> = ${car2[key]} <br/>`;
+        }
+        document.getElementById('car2').innerHTML = temp;
+
+        //merge two object into 3rd object 
+        let newCar = {...car1,...car2};
+        temp = '';
+        for (let key in newCar) {
+            temp += `<b>${key}</b> = ${newCar[key]} <br/>`;
+        }
+        document.getElementById('car3').innerHTML = temp;
+    </script>
+</body>
+
+</html>
