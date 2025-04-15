@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Object cloning</h1>
+    <script>
+        let name = "ABC";
+        let name2 = name;
+        console.log('before change',name,name2);
+        name = 'XYZ';
+        console.log('after change',name,name2);
+
+        let course1 = {
+            name:'MERN stack',
+            duration: 180
+        };
+        // let course2 = course1; //wrong way (will create reference)
+        //object cloning 
+        let course2 = {};
+        for(let key in course1)
+        {
+            course2[key] = course1[key];
+        }
+        
+        console.log("before change",course1,course2);
+        course1.duration = 240;
+        course2.name = "AI/ML";
+        console.log("before change",course1,course2);
+    </script>
+</body>
+</html>
