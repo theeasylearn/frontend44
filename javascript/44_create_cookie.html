@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Create cookie</h1>
+    <form action="" onsubmit="return CreateCookie()">
+        <table border="1" align="center" width="50%" cellpadding="10">
+            <tr>
+                <td>Name</td>
+                <td>
+                    <input type="text" name="cookieName" id="cookieName" required 
+                    placeholder="Cookie Name" />
+                </td>
+            </tr>
+            <tr>
+                <td>Value</td>
+                <td>
+                    <input type="text" name="cookieValue" id="cookieValue" required 
+                    placeholder="Cookie Value" />
+                </td>
+            </tr>
+            <tr>
+                <td align='center' colspan="2">
+                    <input type="submit" value="Create Cookie" />
+                    <input type="reset" value="Clear" />
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script src="cookies.js"></script>
+
+    <script>
+        function CreateCookie()
+        {
+            var cookieName = document.getElementById('cookieName').value;
+            var cookieValue = document.getElementById('cookieValue').value;
+            console.log(cookieName,cookieValue);
+            setCookie(cookieName,cookieValue,365);
+            document.getElementById('cookieName').value = '';
+            document.getElementById('cookieValue').value = '';
+            alert('cookie has been created')
+            return false;
+        }
+    </script>
+</body>
+</html>

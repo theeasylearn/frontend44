@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>read cookie</h1>
+    <form action="" onsubmit="return readCookie()">
+        <table border="1" align="center" width="50%" cellpadding="10">
+            <tr>
+                <td>Name</td>
+                <td>
+                    <input type="text" name="cookieName" id="cookieName" required placeholder="Cookie Name" />
+                </td>
+            </tr>
+            <tr>
+                <td>Value</td>
+                <td>
+                    <input type="text" name="cookieValue" id="cookieValue" placeholder="Cookie Value" />
+                </td>
+            </tr>
+            <tr>
+                <td align='center' colspan="2">
+                    <input type="submit" value="get Cookie" />
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script src="cookies.js"></script>
+
+    <script>
+        function readCookie() {
+            var cookieName = document.getElementById('cookieName').value;
+            console.log(cookieName,);
+            let cookieValue = getCookie(cookieName);
+            if (cookieValue === '') {
+                alert('no cookies found')
+            }
+            else 
+            {
+                document.getElementById('cookieValue').value = cookieValue;
+            }
+            return false;
+        }
+    </script>
+</body>
+
+</html>
