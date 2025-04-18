@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Create session storage</h1>
+    <form action="" onsubmit="return createSessionStorage()">
+        <table border="1" align="center" width="50%" cellpadding="10">
+            <tr>
+                <td>Name</td>
+                <td>
+                    <input type="text" name="keyName" id="keyName" required 
+                    placeholder="key Name" />
+                </td>
+            </tr>
+            <tr>
+                <td>Value</td>
+                <td>
+                    <input type="text" name="keyValue" id="keyValue" required 
+                    placeholder="key Value" />
+                </td>
+            </tr>
+            <tr>
+                <td align='center' colspan="2">
+                    <input type="submit" value="Create session storage" />
+                    <input type="reset" value="Clear" />
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function createSessionStorage()
+        {
+            let keyName = document.getElementById('keyName').value;
+            let keyValue = document.getElementById('keyValue').value;
+            //console.log(keyName,keyValue);
+            sessionStorage.setItem(keyName,keyValue);
+
+            document.getElementById('keyName').value = "";
+            document.getElementById('keyValue').value = "";
+            alert('value saved');
+            window.location = "49_read_sessionstorage.html";
+            return false;
+        }
+    </script>
+</body>
+</html>

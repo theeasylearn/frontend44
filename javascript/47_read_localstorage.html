@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>read cookie</h1>
+    <form action="" onsubmit="return readLocalStorage()">
+        <table border="1" align="center" width="50%" cellpadding="10">
+            <tr>
+                <td>Name</td>
+                <td>
+                    <input type="text" name="keyName" id="keyName" required placeholder="Key Name" />
+                </td>
+            </tr>
+            <tr>
+                <td>Value</td>
+                <td>
+                    <input type="text" name="keyValue" id="keyValue" placeholder="key Value" />
+                </td>
+            </tr>
+            <tr>
+                <td align='center' colspan="2">
+                    <input type="submit" value="get storage" />
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <script>
+        function readLocalStorage() {
+            var keyName = document.getElementById('keyName').value;
+            console.log(keyName);
+            var value = localStorage.getItem(keyName);
+            if(value === null)
+                alert('key not found');
+            else 
+                document.getElementById('keyValue').value = value;
+            return false;
+        }
+    </script>
+</body>
+
+</html>
