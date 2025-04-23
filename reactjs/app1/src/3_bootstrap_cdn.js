@@ -1,11 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min.js';
-
-//how to use bootstrap framework using package (offline)
+//how to use bootstrap framework using CDN 
 var output = (<div className='container'>
-    {/* it is comments */}
     <div className='row'>
         <div className='col-12'>
             <h1>working with bootstrap</h1>
