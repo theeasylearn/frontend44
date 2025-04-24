@@ -16,17 +16,6 @@ var today = {
 
 function DigitalClock(time)
 {
-    //check condition 
-    let ampm = '';
-    if(time.hour>12)
-    {
-        time.hour = time.hour - 12;
-        ampm = " PM";
-    }
-    else 
-    {
-        ampm = " AM";
-    }
     return ( <div className="container">
         <div className="row">
             <div className="col-lg-6 offset-3">
@@ -37,7 +26,7 @@ function DigitalClock(time)
                         <th className="text-center">Seconds</th>
                     </tr>
                     <tr>
-                        <td className="text-center">{time.hour} {ampm}</td>
+                        <td className="text-center">{time.hour}</td>
                         <td className="text-center">{time.minutes}</td>
                         <td className="text-center">{time.second}</td>
                     </tr>

@@ -3,3 +3,9 @@
 3) create register form 
 
 4) create one page website for restaurant using bootstrap 
+
+5) edit 5_function.js 
+    display name of the day 
+        Fri,Sat after date 
+    display month name 
+        jan, feb, mar
