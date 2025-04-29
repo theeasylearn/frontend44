@@ -1,0 +1,26 @@
+body {
+    background-color: #f8f9fa;
+}
+.header-title {
+    font-weight: bold;
+    color: #1a3c34;
+}
+.table-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.table th, .table td {
+    vertical-align: middle;
+}
+.table-hover tbody tr:hover {
+    background-color: #e9ecef;
+}
+.navbar {
+    background-color: #1a3c34;
+}
+.navbar-brand, .nav-link {
+    color: #ffffff !important;
+}
+.navbar-brand:hover, .nav-link:hover {
+    color: #d4a017 !important;
+}
