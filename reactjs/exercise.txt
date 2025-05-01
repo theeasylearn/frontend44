@@ -9,3 +9,22 @@
         Fri,Sat after date 
     display month name 
         jan, feb, mar
+
+6) Create your resume using class components
+
+7) display IPL point table using reusable class components
+
+8) Create reactjs user interface for Hotel to get information about occupied and available room. each room has 
+    No, Floor, RoomType (Deluxe, Super Deluxe), and status(1=occupied,2=available). 
+    there should be button to change status of room 
+
+    use property variable for No, Floor, RoomType and state variable for status 
+
+8)  Create cricket scoreboard update & display interface explain in class.
+    make sure that none of the player can play more then 120 balls 
+
+9)  Develop dynamic SIP Calculator 
+
+10) create an game using react js which has 9 boxes. initially all boxes are empty but there will duck display in any one box randomly for only half second. if user can click on that duck give him 1 points. if user miss the duck reduce point by 1. if point is < -3 then user loss the game. if user reach 10 points then he win games. 
+
+11) create MCQ application like KBC where user will get question and 4 options. there will be 17 questions related to reactjs. and there will be 3 life line. 50/50 and flip the question. 

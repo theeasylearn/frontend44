@@ -4,8 +4,7 @@ import './fixture.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 //reusable class component 
 class CartItem extends React.Component {
-  constructor(props)
-  {
+  constructor(props) {
     super(props); //required
     //property variable
     this.name = props.name;
@@ -16,23 +15,64 @@ class CartItem extends React.Component {
     //state variable 
     this.state = {
       quantity: props.quantity,
-      total: parseInt(props.price) * parseInt(props.quantity)
+      total: parseInt(props.price) * parseInt(props.quantity),
+      isDeleted: false
     }
   }
+  //create user defined function 
+  updateQuantity = (mode) => {
+    //alert('button clicked' + mode);
+    if (mode === 'minus') {
+      // this.state.quantity = this.state.quantity + 1; //wrong way
+      this.setState({
+        quantity: parseInt(this.state.quantity) - 1,
+      }, () => {
+        //this function will run only after quantity state variable is updated successfully
+        this.setState({
+          total: parseInt(this.state.quantity) * parseInt(this.price)
+
+        })
+      });
+    }
+    else {
+      this.setState({
+        quantity: parseInt(this.state.quantity) + 1,
+      }, () => {
+        //this function will run only after quantity state variable is updated successfully
+        this.setState({
+          total: parseInt(this.state.quantity) * parseInt(this.price)
+
+        })
+      });
+    }
+  }
+
+  deleteItem = () => {
+      this.setState({
+        isDeleted:true
+      });
+  }
+
   render() {
-    return(<tr>
-      <td>{this.name}<br /><small className="text-muted">Color: {this.color}, Size: {this.size}</small></td>
-      <td>
-        <div className="input-group input-group-sm" style={{ "width": "120px" }}>
-          <button className="btn btn-outline-secondary" type="button">-</button>
-          <input type="text" className="form-control text-center" value={this.state.quantity} readOnly />
-          <button className="btn btn-outline-secondary" type="button">+</button>
-        </div>
-      </td>
-      <td>{this.price}</td>
-      <td>{this.state.total}</td>
-      <td><button className="btn btn-danger btn-sm">Remove</button></td>
-    </tr>)
+    let output = null;
+    if (this.state.isDeleted == false) {
+      output = (<tr>
+        <td>{this.name}<br /><small className="text-muted">Color: {this.color}, Size: {this.size}</small></td>
+        <td>
+          <div className="input-group input-group-sm" style={{ "width": "120px" }}>
+            <button className="btn btn-outline-secondary" type="button"
+              onClick={() => this.updateQuantity('minus')}>-</button>
+            <input type="text" className="form-control text-center" value={this.state.quantity} readOnly />
+            <button className="btn btn-outline-secondary" type="button"
+              onClick={() => this.updateQuantity('plus')}>+</button>
+          </div>
+        </td>
+        <td>{this.price}</td>
+        <td>{this.state.total}</td>
+        <td><button className="btn btn-danger btn-sm" onClick={this.deleteItem}>Remove</button></td>
+      </tr>);
+    }
+    return (output)
   }
 }
 //create class component 
@@ -59,6 +99,7 @@ class Cart extends React.Component {
             <tbody>
               <CartItem name='IPhone 16 pro max' price='125000' quantity='1' size='big' color='white' />
 
+              <CartItem name='Ipad ' price='25000' quantity='1' size='big' color='white' />
             </tbody>
             <tfoot>
               <tr>
