@@ -11,7 +11,6 @@ class CartItem extends React.Component {
     this.size = props.size;
     this.color = props.color;
     this.price = props.price;
-    console.log('constructor is called ',this.name);
 
     //state variable 
     this.state = {
@@ -54,12 +53,7 @@ class CartItem extends React.Component {
       });
   }
 
-  componentWillMount()
-  {
-      console.log('componentWillMount is called ',this.name);
-  }
   render() {
-    console.log('render method is called',this.name);
     let output = null;
     if (this.state.isDeleted == false) {
       output = (<tr>
@@ -79,35 +73,6 @@ class CartItem extends React.Component {
       </tr>);
     }
     return (output)
-  }
-
-  componentDidMount()
-  {
-    console.log('componentDidMount is called ',this.name);
-  }
-
-  shouldComponentUpdate(nextProp,nextState)
-  {
-      console.log('shouldComponentUpdate is called',this.name);
-      if(parseInt(nextState.quantity)<1 || parseInt(nextState.quantity)>5)
-        return false;
-      else 
-        return true;
-  }
-
-  componentWillUpdate(nextProp,nextState)
-  {
-    console.log('componentWillUpdate is called',this.name);
-  }
-
-  componentDidUpdate(prevProp,prevState)
-  {
-    console.log('componentDidUpdate is called',this.name);
-  }
-
-  componentWillUnmount()
-  {
-    console.log('componentWillUnmount is called',this.name);
   }
 }
 //create class component 
