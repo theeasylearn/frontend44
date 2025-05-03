@@ -1,162 +1,129 @@
-import React, { lazy } from 'react';
+import React,{Component} from 'react';
 import ReactDOM from 'react-dom/client';
-import './fixture.css';
-const root = ReactDOM.createRoot(document.getElementById('root'));
-//reusable class component 
-class CartItem extends React.Component {
-  constructor(props) {
-    super(props); //required
-    //property variable
-    this.name = props.name;
-    this.size = props.size;
-    this.color = props.color;
-    this.price = props.price;
-    console.log('constructor is called ',this.name);
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
 
-    //state variable 
-    this.state = {
-      quantity: props.quantity,
-      total: parseInt(props.price) * parseInt(props.quantity),
-      isDeleted: false
-    }
-  }
-  //create user defined function 
-  updateQuantity = (mode) => {
-    //alert('button clicked' + mode);
-    if (mode === 'minus') {
-      // this.state.quantity = this.state.quantity + 1; //wrong way
-      this.setState({
-        quantity: parseInt(this.state.quantity) - 1,
-      }, () => {
-        //this function will run only after quantity state variable is updated successfully
-        this.setState({
-          total: parseInt(this.state.quantity) * parseInt(this.price)
-
-        })
-      });
-    }
-    else {
-      this.setState({
-        quantity: parseInt(this.state.quantity) + 1,
-      }, () => {
-        //this function will run only after quantity state variable is updated successfully
-        this.setState({
-          total: parseInt(this.state.quantity) * parseInt(this.price)
-
-        })
-      });
-    }
-  }
-
-  deleteItem = () => {
-      this.setState({
-        isDeleted:true
-      });
-  }
-
-  componentWillMount()
-  {
-      console.log('componentWillMount is called ',this.name);
-  }
-  render() {
-    console.log('render method is called',this.name);
-    let output = null;
-    if (this.state.isDeleted == false) {
-      output = (<tr>
-        <td>{this.name}<br /><small className="text-muted">Color: {this.color}, Size: {this.size}</small></td>
-        <td>
-          <div className="input-group input-group-sm" style={{ "width": "120px" }}>
-            <button className="btn btn-outline-secondary" type="button"
-              onClick={() => this.updateQuantity('minus')}>-</button>
-            <input type="text" className="form-control text-center" value={this.state.quantity} readOnly />
-            <button className="btn btn-outline-secondary" type="button"
-              onClick={() => this.updateQuantity('plus')}>+</button>
-          </div>
-        </td>
-        <td>{this.price}</td>
-        <td>{this.state.total}</td>
-        <td><button className="btn btn-danger btn-sm" onClick={this.deleteItem}>Remove</button></td>
-      </tr>);
-    }
-    return (output)
-  }
-
-  componentDidMount()
-  {
-    console.log('componentDidMount is called ',this.name);
-  }
-
-  shouldComponentUpdate(nextProp,nextState)
-  {
-      console.log('shouldComponentUpdate is called',this.name);
-      if(parseInt(nextState.quantity)<1 || parseInt(nextState.quantity)>5)
-        return false;
-      else 
-        return true;
-  }
-
-  componentWillUpdate(nextProp,nextState)
-  {
-    console.log('componentWillUpdate is called',this.name);
-  }
-
-  componentDidUpdate(prevProp,prevState)
-  {
-    console.log('componentDidUpdate is called',this.name);
-  }
-
-  componentWillUnmount()
-  {
-    console.log('componentWillUnmount is called',this.name);
-  }
-}
 //create class component 
-class Cart extends React.Component {
-  render() {
-    return (<div>
-      <header className="bg-light py-3">
-        <div className="container">
-          <h1 className="h3">Shopping Cart</h1>
-        </div>
-      </header>
-      <main className="container my-5">
-        <div className="table-responsive">
-          <table className="table table-bordered">
-            <thead>
-              <tr>
-                <th scope="col">Product Name</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Price</th>
-                <th scope="col">Total</th>
-                <th scope="col">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <CartItem name='IPhone 16 pro max' price='125000' quantity='1' size='big' color='white' />
+class InterestCalculator extends Component
+{
+    //steps 
+    /*
+        1) create key value pair in state object for each input
+        2) bind specific key with input tag
+        3) handle onChange Event each and every input
+    */
+    constructor(props)
+    {
+        super(props);
+        //create state variable
+        this.state = {
+            amount:'',
+            rate:'',
+            year:'',
+            interestType:'',
+            isRoundOff:false,
+            result:'',
+        };
 
-              <CartItem name='Ipad ' price='25000' quantity='1' size='big' color='white' />
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colSpan={4} className="text-end fw-bold">Grand Total:</td>
-                <td className="fw-bold">$129.97</td>
-                <td />
-              </tr>
-            </tfoot>
-          </table>
-        </div>
-        <div className="d-flex justify-content-between mt-3">
-          <a href="#" className="btn btn-outline-secondary">Continue Shopping</a>
-          <a href="#" className="btn btn-primary">Proceed to Checkout</a>
-        </div>
-      </main>
-      <footer className="bg-light py-4">
-        <div className="container text-center">
-          <p className="mb-0 text-muted">© 2025 Online Shop. All rights reserved.</p>
-        </div>
-      </footer>
-    </div>
-    );
-  }
+    }
+    //user defined function
+    updateAmount = (TextGivenByUser) => {
+        this.setState({
+            amount:TextGivenByUser
+        });
+    }
+    updateRate = (TextGivenByUser) => {
+        this.setState({
+            rate:TextGivenByUser
+        });
+    }
+
+    updateYear = (TextGivenByUser) => {
+        this.setState({
+            year:TextGivenByUser
+        });
+    }
+
+    updateInterestType = (OptionSelectedByUser) => {
+        this.setState({
+            interestType:OptionSelectedByUser
+        });
+    }
+
+    // e is implicit argument (which comes automatically)
+    calculateInterest = (e) => {
+        console.log(this.state);
+        e.preventDefault(); //required for preventing refresh of webpage
+    }
+    updateRoundOff = () => {
+        this.setState({
+            isRoundOff: ! (this.state.isRoundOff)
+        });
+    }
+    render()
+    {
+        return (<div className="container mt-5">
+            <div className="row">
+              <div className="col-lg-8 offset-2">
+                <div className="card shadow rounded">
+                  <div className="card-body">
+                    <h1 className="text-center mb-4">Interest Calculator</h1>
+                    <form className="p-4" 
+                    onSubmit={this.calculateInterest} >
+                      <div className="mb-3">
+                        <label htmlFor="amount" className="form-label">Principal Amount ($)</label>
+                        <input type="number" className="form-control" id="amount" name="amount" step="0.01" min={0} required value={this.state.amount}
+                        onChange={(e) => this.updateAmount(e.target.value)}  />
+                      </div>
+                      <div className="mb-3">
+                        <label htmlFor="rate" className="form-label">Interest Rate (%)</label>
+                        <input type="number" className="form-control" id="rate" name="rate" step="0.01" min={0} required value={this.state.rate}
+                        onChange={(e) => this.updateRate(e.target.value)} />
+                      </div>
+                      <div className="mb-3">
+                        <label htmlFor="years" className="form-label">Time Period (Years)</label>
+                        {/* no value property should be set for select tag */}
+                        <select className="form-select" id="years" name="years" required
+                        onChange={(e) => this.updateYear(e.target.value)}>
+                          <option value disabled selected>Select years</option>
+                          <option value={1}>1</option>
+                          <option value={2}>2</option>
+                          <option value={3}>3</option>
+                          <option value={4}>4</option>
+                          <option value={5}>5</option>
+                          <option value={10}>10</option>
+                          <option value={15}>15</option>
+                          <option value={20}>20</option>
+                        </select>
+                      </div>
+                      <div className="mb-3">
+                        <label className="form-label">Interest Type</label>
+                        <div className="form-check">
+                          {/* no value property should be set for radio button */}  
+                          <input className="form-check-input" type="radio" name="interestType" id="simple" value="1" required 
+                          onChange={(e) => this.updateInterestType(e.target.value)} />
+                          <label className="form-check-label" htmlFor="simple">Simple Interest</label>
+                        </div>
+                        <div className="form-check">
+                          <input className="form-check-input" type="radio" name="interestType" id="compound" value="2" required
+                          onChange={(e) => this.updateInterestType(e.target.value)}  />
+                          <label className="form-check-label" htmlFor="compound">Compound Interest</label>
+                        </div>
+                      </div>
+                      <div className="mb-3 form-check">
+                         {/* no value property should be set for checkbox button */}  
+                        <input type="checkbox" className="form-check-input" id="roundOff" name="roundOff" value='1' onChange={this.updateRoundOff} />
+                        <label className="form-check-label" htmlFor="roundOff">Round off to 2 decimal places</label>
+                      </div>
+                      <button type="submit" className="btn btn-primary w-100">Calculate</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          );
+    }
 }
-root.render(<Cart />);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<InterestCalculator />);
