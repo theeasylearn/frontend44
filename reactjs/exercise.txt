@@ -25,6 +25,17 @@
 
 9)  Develop dynamic SIP Calculator 
 
+11) create web application that has 4 buttons 
+        Mobile 
+        laptop 
+        TV
+        Camera
+    when user click on any one of the button display 4 products of selected button category (use conditional rendering)
+
+12) create web application display list of animals/birds/insects of 30 species. each species should have name,photo,expected life, food. all species should be in list of objects. use map function to display it 
+
+
+
 10) create an game using react js which has 9 boxes. initially all boxes are empty but there will duck display in any one box randomly for only half second. if user can click on that duck give him 1 points. if user miss the duck reduce point by 1. if point is < -3 then user loss the game. if user reach 10 points then he win games. 
 
 11) create MCQ application like KBC where user will get question and 4 options. there will be 17 questions related to reactjs. and there will be 3 life line. 50/50 and flip the question. 
