@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom/client';
-import 'bootstrap/dist/css/bootstrap.min.css';
 class WorldFlag extends Component {
   constructor(props) {
     super(props);
@@ -54,8 +53,14 @@ class WorldFlag extends Component {
       { name: "Fiji", flag: "https://flagpedia.net/data/flags/w580/fj.png", continent: "Australia" },
       { name: "Solomon Islands", flag: "https://flagpedia.net/data/flags/w580/sb.png", continent: "Australia" }
     ];
+
+    //create state object 
+    this.state = {
+        continent: '',
+        countries: this.countries
+    }
   }
-  Country = (item,index) => {
+  Country = (item, index) => {
     return (<div className="col-lg-3" key={index}>
       <div className="card shadow">
         {/* Country Name */}
@@ -71,14 +76,59 @@ class WorldFlag extends Component {
       </div>
     </div>)
   }
-  render() {
-    return (<div className="container mt-5">
-      <div className="row">
-        {this.countries.map((item,index) => this.Country(item,index))}
 
+  setContinent = (value) => {
+    console.log(value);
+    this.setState({
+        continent:value
+    });
+  }
+
+  //here is e implicit argument
+  searchContinent = (e) => {
+      console.log('user want to search for ' + this.state.continent);
+      e.preventDefault();
+      let filteredCountries = this.countries.filter((item) => {
+          if(item.continent === this.state.continent)
+          {
+              return item
+          }  
+      });
+      this.setState({
+          countries:filteredCountries
+      });
+      //console.log(filteredCountries);
+
+  }
+  render() {
+    return (<>
+      <div className="container-fluid p-3 bg-light shadow">
+        <div className="row">
+          <div className="col-12">
+            <form className="row row-cols-lg-auto g-3 border d-flex justify-content-end"
+              onSubmit={this.searchContinent}>
+              <div className="col-12">
+                <label className="visually-hidden" htmlFor="inlineFormInputGroupUsername">Username</label>
+                <div className="input-group">
+                  <input type="text" className="form-control" id="inlineFormInputGroupUsername" placeholder="Search Continent" value={this.state.continent}
+                  onChange={(e) => this.setContinent(e.target.value)} required />
+                </div>
+              </div>
+              <div className="col-12">
+                <button type="submit" className="btn btn-primary">display all</button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
-    )
+
+      <div className="container mt-5">
+        <div className="row">
+          {this.state.countries.map((item, index) => this.Country(item, index))}
+
+        </div>
+      </div>
+    </>)
   }
 }
 const root = ReactDOM.createRoot(document.getElementById('root'));
