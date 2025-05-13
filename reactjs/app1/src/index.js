@@ -1,135 +1,94 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom/client';
-class WorldFlag extends Component {
-  constructor(props) {
-    super(props);
-    //property countries which is list of object
-    this.countries = [
-      { name: "Germany", flag: "https://flagpedia.net/data/flags/w580/de.png", continent: "Europe" },
-      { name: "United Kingdom", flag: "https://flagpedia.net/data/flags/w580/gb.png", continent: "Europe" },
-      { name: "France", flag: "https://flagpedia.net/data/flags/w580/fr.png", continent: "Europe" },
-      { name: "Italy", flag: "https://flagpedia.net/data/flags/w580/it.png", continent: "Europe" },
-      { name: "Spain", flag: "https://flagpedia.net/data/flags/w580/es.png", continent: "Europe" },
-      { name: "Netherlands", flag: "https://flagpedia.net/data/flags/w580/nl.png", continent: "Europe" },
-      { name: "Belgium", flag: "https://flagpedia.net/data/flags/w580/be.png", continent: "Europe" },
-      { name: "Switzerland", flag: "https://flagpedia.net/data/flags/w580/ch.png", continent: "Europe" },
-      { name: "Austria", flag: "https://flagpedia.net/data/flags/w580/at.png", continent: "Europe" },
-      { name: "Portugal", flag: "https://flagpedia.net/data/flags/w580/pt.png", continent: "Europe" },
-      { name: "Sweden", flag: "https://flagpedia.net/data/flags/w580/se.png", continent: "Europe" },
-      { name: "Norway", flag: "https://flagpedia.net/data/flags/w580/no.png", continent: "Europe" },
-      { name: "Denmark", flag: "https://flagpedia.net/data/flags/w580/dk.png", continent: "Europe" },
-      { name: "Finland", flag: "https://flagpedia.net/data/flags/w580/fi.png", continent: "Europe" },
-      { name: "Greece", flag: "https://flagpedia.net/data/flags/w580/gr.png", continent: "Europe" },
-      { name: "Poland", flag: "https://flagpedia.net/data/flags/w580/pl.png", continent: "Europe" },
-      { name: "Czech Republic", flag: "https://flagpedia.net/data/flags/w580/cz.png", continent: "Europe" },
-      { name: "Hungary", flag: "https://flagpedia.net/data/flags/w580/hu.png", continent: "Europe" },
-      { name: "Ireland", flag: "https://flagpedia.net/data/flags/w580/ie.png", continent: "Europe" },
-      { name: "Slovakia", flag: "https://flagpedia.net/data/flags/w580/sk.png", continent: "Europe" },
-      { name: "China", flag: "https://flagpedia.net/data/flags/w580/cn.png", continent: "Asia" },
-      { name: "India", flag: "https://flagpedia.net/data/flags/w580/in.png", continent: "Asia" },
-      { name: "Japan", flag: "https://flagpedia.net/data/flags/w580/jp.png", continent: "Asia" },
-      { name: "South Korea", flag: "https://flagpedia.net/data/flags/w580/kr.png", continent: "Asia" },
-      { name: "Indonesia", flag: "https://flagpedia.net/data/flags/w580/id.png", continent: "Asia" },
-      { name: "Nigeria", flag: "https://flagpedia.net/data/flags/w580/ng.png", continent: "Africa" },
-      { name: "Egypt", flag: "https://flagpedia.net/data/flags/w580/eg.png", continent: "Africa" },
-      { name: "South Africa", flag: "https://flagpedia.net/data/flags/w580/za.png", continent: "Africa" },
-      { name: "Kenya", flag: "https://flagpedia.net/data/flags/w580/ke.png", continent: "Africa" },
-      { name: "Ethiopia", flag: "https://flagpedia.net/data/flags/w580/et.png", continent: "Africa" },
-      { name: "United States", flag: "https://flagpedia.net/data/flags/w580/us.png", continent: "North America" },
-      { name: "Canada", flag: "https://flagpedia.net/data/flags/w580/ca.png", continent: "North America" },
-      { name: "Mexico", flag: "https://flagpedia.net/data/flags/w580/mx.png", continent: "North America" },
-      { name: "Cuba", flag: "https://flagpedia.net/data/flags/w580/cu.png", continent: "North America" },
-      { name: "Jamaica", flag: "https://flagpedia.net/data/flags/w580/jm.png", continent: "North America" },
-
-      // Adding countries from South America
-      { name: "Brazil", flag: "https://flagpedia.net/data/flags/w580/br.png", continent: "South America" },
-      { name: "Argentina", flag: "https://flagpedia.net/data/flags/w580/ar.png", continent: "South America" },
-      { name: "Colombia", flag: "https://flagpedia.net/data/flags/w580/co.png", continent: "South America" },
-      { name: "Chile", flag: "https://flagpedia.net/data/flags/w580/cl.png", continent: "South America" },
-      { name: "Peru", flag: "https://flagpedia.net/data/flags/w580/pe.png", continent: "South America" },
-      { name: "Australia", flag: "https://flagpedia.net/data/flags/w580/au.png", continent: "Australia" },
-      { name: "New Zealand", flag: "https://flagpedia.net/data/flags/w580/nz.png", continent: "Australia" },
-      { name: "Papua New Guinea", flag: "https://flagpedia.net/data/flags/w580/pg.png", continent: "Australia" },
-      { name: "Fiji", flag: "https://flagpedia.net/data/flags/w580/fj.png", continent: "Australia" },
-      { name: "Solomon Islands", flag: "https://flagpedia.net/data/flags/w580/sb.png", continent: "Australia" }
-    ];
-
-    //create state object 
-    this.state = {
-        continent: '',
-        countries: this.countries
-    }
+class Checkout extends Component {
+  constructor(props)
+  {
+      super(props);
+      //create state object(empty)
+      this.state = {}
   }
-  Country = (item, index) => {
-    return (<div className="col-lg-3" key={index}>
-      <div className="card shadow">
-        {/* Country Name */}
-        <div className="card-header text-center text-bg-danger">
-          <h5 className="card-title">{item.name}</h5>
-        </div>
-        {/* Country Image */}
-        <img src={item.flag} className="card-img-top" alt="Country Image" />
-        {/* Country's Continent */}
-        <div className="card-body text-center">
-          <p className="card-text fs-5">{item.continent}</p>
-        </div>
-      </div>
-    </div>)
-  }
+  onChangeValue = (e) => {
+    //console.log(e.target.name, e.target.value);
 
-  setContinent = (value) => {
-    console.log(value);
     this.setState({
-        continent:value
+        [e.target.name] : e.target.value
     });
   }
 
-  //here is e implicit argument
-  searchContinent = (e) => {
-      console.log('user want to search for ' + this.state.continent);
-      e.preventDefault();
-      let filteredCountries = this.countries.filter((item) => {
-          if(item.continent === this.state.continent)
-          {
-              return item
-          }  
-      });
-      this.setState({
-          countries:filteredCountries
-      });
-      //console.log(filteredCountries);
-
+  doCheckout = (e) => {
+    //this function will run when form is submitted
+    console.log(this.state); //display whole state object
+    e.preventDefault();
   }
   render() {
-    return (<>
-      <div className="container-fluid p-3 bg-light shadow">
-        <div className="row">
-          <div className="col-12">
-            <form className="row row-cols-lg-auto g-3 border d-flex justify-content-end"
-              onSubmit={this.searchContinent}>
-              <div className="col-12">
-                <label className="visually-hidden" htmlFor="inlineFormInputGroupUsername">Username</label>
-                <div className="input-group">
-                  <input type="text" className="form-control" id="inlineFormInputGroupUsername" placeholder="Search Continent" value={this.state.continent}
-                  onChange={(e) => this.setContinent(e.target.value)} required />
+    return (<div className="container my-4">
+      <div className="row">
+        <div className="col-lg-8 offset-2">
+          <div className="card shadow">
+            <div className="card-header">
+              <h1 className="h3">Checkout</h1>
+            </div>
+            <div className="card-body">
+              <div className="row">
+                <div className="col-md-12">
+                  <h2 className="h5 mb-3">Ship To</h2>
+                  <form method='post' onSubmit={this.doCheckout}>
+                    <div className="row mb-3">
+                      <div className="col-md-6">
+                        <label htmlFor="firstName" className="form-label">First Name</label>
+                        <input type="text" className="form-control" id="firstName" name="firstName" required value={this.state.firstName} 
+                        onChange={this.onChangeValue} />
+                      </div>
+                      <div className="col-md-6">
+                        <label htmlFor="lastName" className="form-label">Last Name</label>
+                        <input type="text" className="form-control" id="lastName" name="lastName" required value={this.state.lastName} onChange={this.onChangeValue} />
+                      </div>
+                    </div>
+                    <div className="mb-3">
+                      <label htmlFor="streetAddress" className="form-label">Street Address</label>
+                      <input type="text" className="form-control" id="streetAddress" name="streetAddress" required value={this.state.streetAddress} 
+                      onChange={this.onChangeValue} />
+                    </div>
+                    <div className="row mb-3">
+                      <div className="col-md-6">
+                        <label htmlFor="postalCode" className="form-label">Postal Code</label>
+                        <input type="text" className="form-control" id="postalCode" name="postalCode" required value={this.state.postalCode} onChange={this.onChangeValue} />
+                      </div>
+                      <div className="col-md-6">
+                        <label htmlFor="city" className="form-label">Town/City</label>
+                        <input type="text" className="form-control" id="city" name="city" required
+                        value={this.state.city} onChange={this.onChangeValue} />
+                      </div>
+                    </div>
+                    <div className="mb-3">
+                      <label htmlFor="province" className="form-label">Province</label>
+                      <select className="form-select" id="province" name="province" required
+                      value={this.state.province} onChange={this.onChangeValue}>
+                        <option selected disabled>Please Select</option>
+                        <option value="ON">Ontario</option>
+                        <option value="QC">Quebec</option>
+                        <option value="BC">British Columbia</option>
+                        {/* Add more provinces as needed */}
+                      </select>
+                    </div>
+                    <div className="mb-3">
+                      <label htmlFor="phoneNumber" className="form-label">Phone Number <span className="text-muted">ⓘ</span></label>
+                      <input type="tel" className="form-control" id="phoneNumber" required name="phoneNumber" value={this.state.phoneNumber} onChange={this.onChangeValue}  />
+                    </div>
+                    <div className="d-flex">
+                      <button type="submit" className="btn btn-primary w-50">save</button>
+                      <button type="reset" className="btn btn-dark w-50">clear all</button>
+                    </div>
+                  </form>
                 </div>
               </div>
-              <div className="col-12">
-                <button type="submit" className="btn btn-primary">display all</button>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
-
-      <div className="container mt-5">
-        <div className="row">
-          {this.state.countries.map((item, index) => this.Country(item, index))}
-
-        </div>
-      </div>
-    </>)
+    </div>
+    );
   }
 }
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<WorldFlag />);
+root.render(<Checkout />);
