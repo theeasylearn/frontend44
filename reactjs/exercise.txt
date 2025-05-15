@@ -39,6 +39,8 @@
 14) develop change password module using class components(controlled components approach)
 
 
+15) develop reactjs application using function components to update hockey scoreboard. 
+
 10) create an game using react js which has 9 boxes. initially all boxes are empty but there will duck display in any one box randomly for only half second. if user can click on that duck give him 1 points. if user miss the duck reduce point by 1. if point is < -3 then user loss the game. if user reach 10 points then he win games. 
 
 11) create MCQ application like KBC where user will get question and 4 options. there will be 17 questions related to reactjs. and there will be 3 life line. 50/50 and flip the question. 
