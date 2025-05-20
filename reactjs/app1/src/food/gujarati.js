@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 export default class Gujarati extends React.Component {
     constructor(props) {
         super(props)
@@ -6,6 +7,7 @@ export default class Gujarati extends React.Component {
     render() {
         return (<div className="container">
             <h2 className="mb-4">Famous Gujarati Dishes</h2>
+            <p className="text-end mb-3"><Link className='btn btn-primary' to="/">Home</Link></p>
             <ul className="list-group">
                 <li className="list-group-item">Dhokla</li>
                 <li className="list-group-item">Khandvi</li>
