@@ -44,3 +44,9 @@
 10) create an game using react js which has 9 boxes. initially all boxes are empty but there will duck display in any one box randomly for only half second. if user can click on that duck give him 1 points. if user miss the duck reduce point by 1. if point is < -3 then user loss the game. if user reach 10 points then he win games. 
 
 11) create application that has 10 class components, one for each IPL team. each class components should have player detail as table. table should playername country name type of player age. also create class components for home page which has 12 team name as list . each team is link, when user click upon link user should be redirected on paticular team page.  
+
+12) call below api using class components and fetch method 
+    https://jsonplaceholder.typicode.com/albums
+
+13) call below api using class components and fetch method 
+    https://jsonplaceholder.typicode.com/comments

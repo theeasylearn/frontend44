@@ -1,72 +1,64 @@
 import React, { useEffect, useState } from 'react';
-
 import ReactDOM from 'react-dom/client';
-//create function components 
-function FootBall() {
-  //create state variable 
-  //syntax 
-  // let [variable-name,function-name] = useState(initial value)
-  let [countA, setCountA] = useState(0);
-  let [countB, setCountB] = useState(0);
-  let [message, setMessage] = useState('any team can win');
-  //let function-name = function()
-  let updateScoreTeamA = function () {
-    //alert('update score for team A');
-    setCountA(countA + 1); //value will be stored in state variable countA therefore it will execute FootBall function again
+class APIDemo1 extends React.Component {
+  constructor(props) {
+    super(props);
+    //create state object
+    this.state = {
+      posts: []
+    }
   }
 
-  let updateScoreTeamB = function () {
-    //alert('update score for team B');
-    setCountB(countB + 1);
+  //we should call api to fetch data in componentDidMount method
+  componentDidMount() {
+    //api calling 
+    let apiAddress = "https://jsonplaceholder.typicode.com/posts";
+    fetch(apiAddress).then((response) => response.json()).then((data) => {
+      console.log(data);
+      this.setState({
+        posts: data
+      });
+
+    }).catch((error) => {
+      alert('data could not fetch');
+    });
   }
-
-  //this function will execute after state variable updates
-  useEffect(() => {
-    showResult();
-  });
-
-  let showResult = function () {
-    if (countA > countB) {
-      setMessage('Team A can win');
-    }
-    else if (countA < countB) {
-      setMessage('Team B can win');
-    }
-    else {
-      setMessage('any Team can win');
-    }
-
-  }
-  return (<div className="container my-5">
-    <div className="row justify-content-center">
-      <div className="col-md-8">
-        <div className="card shadow">
-          <div className="card-body">
-            <h2 className="card-title text-center mb-4">Football Match Scoreboard</h2>
-            <div className="row text-center">
-              <div className="col-md-5">
-                <h3 id="team1Name">Team A</h3>
-                <h4 id="team1Score" className="display-4">{countA}</h4>
-                <button className="btn btn-success mt-2" onClick={updateScoreTeamA}>Add Goal</button>
-              </div>
-              <div className="col-md-2">
-                <h1 className="display-1">-</h1>
-              </div>
-              <div className="col-md-5">
-                <h3 id="team2Name">Team B</h3>
-                <h4 id="team2Score" className="display-4">{countB}</h4>
-                <button className="btn btn-success mt-2" onClick={updateScoreTeamB}>Add Goal</button>
-              </div>
+  render() {
+    return (<div className="container">
+      <div className="row">
+        <div className="col-12">
+          <div className="card">
+            <div className="card-header text-bg-info">
+              <h3>post</h3>
             </div>
-            <div className="text-center mt-4">
-              <label id="matchMessage" className="alert alert-info d-block">{message}</label>
+            <div className="card-body">
+              <table className="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th width="10%">ID</th>
+                    <th width="10%">userID</th>
+                    <th width="30%">title </th>
+                    <th>body</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.state.posts.map((item) => {
+                    return (<tr>
+                      <td>{item.id}</td>
+                      <td>{item.userId}</td>
+                      <td>{item.title}</td>
+                      <td>{item.body}</td>
+                    </tr>)
+                  })}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  )
+    )
+  }
 }
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<FootBall />);
+root.render(<APIDemo1 />);
