@@ -1,64 +1,49 @@
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
-class APIDemo1 extends React.Component {
-  constructor(props) {
-    super(props);
-    //create state object
-    this.state = {
-      posts: []
-    }
-  }
+function Author(props) {
+  //object destructring 
+  let { artId, name, photo } = props;
 
-  //we should call api to fetch data in componentDidMount method
-  componentDidMount() {
-    //api calling 
-    let apiAddress = "https://jsonplaceholder.typicode.com/posts";
-    fetch(apiAddress).then((response) => response.json()).then((data) => {
-      console.log(data);
-      this.setState({
-        posts: data
-      });
-
-    }).catch((error) => {
-      alert('data could not fetch');
-    });
-  }
-  render() {
-    return (<div className="container">
-      <div className="row">
-        <div className="col-12">
-          <div className="card">
-            <div className="card-header text-bg-info">
-              <h3>post</h3>
-            </div>
-            <div className="card-body">
-              <table className="table table-bordered table-striped">
-                <thead>
-                  <tr>
-                    <th width="10%">ID</th>
-                    <th width="10%">userID</th>
-                    <th width="30%">title </th>
-                    <th>body</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {this.state.posts.map((item) => {
-                    return (<tr>
-                      <td>{item.id}</td>
-                      <td>{item.userId}</td>
-                      <td>{item.title}</td>
-                      <td>{item.body}</td>
-                    </tr>)
-                  })}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+  return (<div className="col-lg-3">
+    <div className="card shadow">
+      <div className="card-header d-flex justify-content-between text-bg-primary">
+        <span className="h4">{artId}</span>
+        <span className="h4">{name}</span>
       </div>
+      <img src={photo} alt className="card-img-bottom" />
     </div>
-    )
-  }
+  </div>);
+}
+function Gallery() {
+  //create state array using useState 
+  let [products, setProducts] = useState([]);
+  // use useEffect hook to call api to fetch data 
+  useEffect(() => {
+    if(products.length === 0)
+    {
+      let apiAddress = "https://picsum.photos/v2/list?page=1&limit=20";
+      fetch(apiAddress).then((response) => response.json()).then((data) => {
+        console.log(data);
+        //store this data array into state array products
+        setProducts(data);
+      }).catch((error) => {
+
+      });
+    }
+  })
+  return (<div className="container">
+    <div className="row">
+      <div className="col-12">
+        <h1>Image Gallery</h1>
+      </div>
+      {products.map((item) => {
+        return <Author artId={item.id} name={item.author} photo={item.download_url} />
+      })}
+      {/* 
+        <Author artId='3' name='Diya Patel' photo='https://picsum.photos/id/3/5000/3333' /> */}
+    </div>
+  </div>
+  );
 }
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<APIDemo1 />);
+root.render(<Gallery />);
