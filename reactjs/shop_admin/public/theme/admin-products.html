@@ -33,7 +33,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-               
+
                 <div class="sidebar-brand-text mx-3">Online Shop</div>
             </a>
 
@@ -50,36 +50,36 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-         
+
             <!-- Nav Item - Tables -->
             <li class="nav-item active">
                 <a class="nav-link" href="admin-orders.html">
-                    
+
                     <span>Orders</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="admin-users.html">
-                    
+
                     <span>Users</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="admin-products.html">
-                    
+
                     <span>Products</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="admin-categories.html">
-                    
+
                     <span>Categories</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="admin-change-password.html">
-                    
+
                     <span>Change password</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="#">
-                    
+
                     <span>Logout</span></a>
             </li>
             <!-- Divider -->
@@ -110,10 +110,10 @@
                     </form>
 
                     <!-- Topbar Search -->
-                   
+
 
                     <!-- Topbar Navbar -->
-                  
+
 
                 </nav>
                 <!-- End of Topbar -->
@@ -124,11 +124,44 @@
                         <div class="col-12">
                             <div class="card shadow">
                                 <div class="card-header bg-primary d-flex justify-content-between">
-                                    <h3 class="text-light">Module Heading</h3>
-                                    <a href="#" class="btn btn-light">Action</a>
+                                    <h3 class="text-light">Product management</h3>
+                                    <a href="admin-add-product.html" class="btn btn-light">Add Product</a>
                                 </div>
                                 <div class="card-body">
+                                    <table class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th width="5%">Sr No</th>
+                                                <th width="50%">Name</th>
+                                                <th>Photo</th>
+                                                <th width="10%">Price</th>
+                                                <th width="10%">Stock</th>
+                                                <th width="5%">is Live</th>
 
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>IPhone 16 pro max (Mobile)
+                                                    <div class="d-flex justify-content-start">
+                                                        <a href="admin-edit-product.html"
+                                                            class="btn btn-warning">Edit</a>
+                                                        <a href="#" class="btn btn-danger">Delete</a>
+                                                        <a href="admin-view-product-detail.html"
+                                                            class="btn btn-info">View</a>
+                                                    </div>
+                                                </td>
+
+                                                <td>
+                                                    <img src="https://picsum.photos/100" alt="">
+                                                </td>
+                                                <td>150000</td>
+                                                <td>15</td>
+                                                <td>Yes</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -170,7 +203,7 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
     <!-- Page level custom scripts -->
-     <!-- <script src="https://kit.fontawesome.com/20994dd270.js" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://kit.fontawesome.com/20994dd270.js" crossorigin="anonymous"></script> -->
 </body>
 
 </html>
