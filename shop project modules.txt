@@ -12,7 +12,7 @@ Types of users
                 Add, edit, delete, view, search products
                 table 
                 id,category,title,detail,price,stock,weight,size,photo,islive,isdeleted
-                id,category,title,price,stock,photo,islive,Action
+               
 				User managment (class)
 	
             3   orders management  (class)        

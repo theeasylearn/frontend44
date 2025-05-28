@@ -124,31 +124,64 @@
                         <div class="col-12">
                             <div class="card shadow">
                                 <div class="card-header bg-primary d-flex justify-content-between">
-                                    <h3 class="text-light">Settings</h3>
+                                    <h3 class="text-light">Product management</h3>
+                                    <a href="admin-products.html" class="btn btn-light">Back Product</a>
                                 </div>
                                 <div class="card-body">
-                                    <form>
-                                        <div class="mb-3">
-                                            <label for="currentPassword" class="form-label">Current Password</label>
-                                            <input type="password" class="form-control" id="currentPassword"
-                                                placeholder="Enter current password" required>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <img src="https://picsum.photos/500" class="img-fluid">
+                                            <div class="row mt-3">
+                                                <div class="col"> <a href="admin-edit-product.html"
+                                                        class="btn btn-warning btn-block">Edit</a></div>
+                                                <div class="col"><a href="#" class="btn btn-danger btn-block">Delete</a></div>
+
+
+                                            </div>
                                         </div>
-                                        <div class="mb-3">
-                                            <label for="newPassword" class="form-label">New Password</label>
-                                            <input type="password" class="form-control" id="newPassword"
-                                                placeholder="Enter new password" required>
+                                        <div class="col-lg-8">
+                                            <table class="table table-striped-columns table-striped">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>ID</td>
+                                                        <td>1</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Name</td>
+                                                        <td>IPhone 16 pro max</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Price</td>
+                                                        <td>125000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Stock</td>
+                                                        <td>5</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Weight</td>
+                                                        <td>250 Gram</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Size</td>
+                                                        <td>Big</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>is Live</td>
+                                                        <td>Yes</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Detail</td>
+                                                        <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                            Nulla non ab recusandae voluptas dolore molestiae iusto
+                                                            voluptatibus! Eum, ratione quod porro consequuntur cum
+                                                            minima molestias facilis commodi, odit dolore alias?</td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
                                         </div>
-                                        <div class="mb-3">
-                                            <label for="confirmPassword" class="form-label">Confirm New Password</label>
-                                            <input type="password" class="form-control" id="confirmPassword"
-                                                placeholder="Confirm new password" required>
-                                        </div>
-                                        <div class="d-flex justify-content-end">
-                                            <button type="submit" class="btn btn-primary">Save changes</button>
-                                            &nbsp;
-                                              <button type="reset" class="btn btn-dark">clear all</button>
-                                        </div>
-                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>

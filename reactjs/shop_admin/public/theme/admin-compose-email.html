@@ -124,29 +124,30 @@
                         <div class="col-12">
                             <div class="card shadow">
                                 <div class="card-header bg-primary d-flex justify-content-between">
-                                    <h3 class="text-light">Settings</h3>
+                                    <h3 class="text-light">User Management</h3>
+                                    <a href="admin-users.html" class="btn btn-light">Back</a>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <h4 class="fw-bold text-dark border-bottom pb-2">Compose Mail</h4>
+                                    <form class="pt-2">
                                         <div class="mb-3">
-                                            <label for="currentPassword" class="form-label">Current Password</label>
-                                            <input type="password" class="form-control" id="currentPassword"
-                                                placeholder="Enter current password" required>
+                                            <label for="recipient" class="form-label">To</label>
+                                            <input type="email" class="form-control" id="recipient" required readonly>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="newPassword" class="form-label">New Password</label>
-                                            <input type="password" class="form-control" id="newPassword"
-                                                placeholder="Enter new password" required>
+                                            <label for="subject" class="form-label">Subject</label>
+                                            <input type="text" class="form-control" id="subject"
+                                                placeholder="Enter subject" required>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="confirmPassword" class="form-label">Confirm New Password</label>
-                                            <input type="password" class="form-control" id="confirmPassword"
-                                                placeholder="Confirm new password" required>
+                                            <label for="body" class="form-label">Message</label>
+                                            <textarea class="form-control" id="body" rows="8"
+                                                placeholder="Write your message here..." required></textarea>
                                         </div>
                                         <div class="d-flex justify-content-end">
-                                            <button type="submit" class="btn btn-primary">Save changes</button>
-                                            &nbsp;
-                                              <button type="reset" class="btn btn-dark">clear all</button>
+
+                                            <button type="submit" class="btn btn-primary">Send Email</button>&nbsp;
+                                            <button type="button" class="btn btn-secondary me-2">Cancel</button>
                                         </div>
                                     </form>
                                 </div>
