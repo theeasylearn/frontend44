@@ -1,56 +1,10 @@
 import MyFooter from "./admin-footer";
 import Sidebar from "./admin-sidebar";
-
+import { Link } from "react-router-dom";
 export default function AdminEditProduct() {
   return (<div id="wrapper">
     {/* Sidebar */}
-    <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-      {/* Sidebar - Brand */}
-      <a className="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div className="sidebar-brand-text mx-3">Online Shop</div>
-      </a>
-      {/* Divider */}
-      <hr className="sidebar-divider my-0" />
-      {/* Nav Item - Dashboard */}
-      <li className="nav-item">
-        <a className="nav-link" href="admin-dashboard.html">
-          <i className="fas fa-fw fa-tachometer-alt" />
-          <span>Dashboard</span></a>
-      </li>
-      {/* Divider */}
-      <hr className="sidebar-divider" />
-      {/* Nav Item - Tables */}
-      <li className="nav-item active">
-        <a className="nav-link" href="admin-orders.html">
-          <span>Orders</span></a>
-      </li>
-      <li className="nav-item active">
-        <a className="nav-link" href="admin-users.html">
-          <span>Users</span></a>
-      </li>
-      <li className="nav-item active">
-        <a className="nav-link" href="admin-products.html">
-          <span>Products</span></a>
-      </li>
-      <li className="nav-item active">
-        <a className="nav-link" href="admin-categories.html">
-          <span>Categories</span></a>
-      </li>
-      <li className="nav-item active">
-        <a className="nav-link" href="admin-change-password.html">
-          <span>Change password</span></a>
-      </li>
-      <li className="nav-item active">
-        <a className="nav-link" href="#">
-          <span>Logout</span></a>
-      </li>
-      {/* Divider */}
-      <hr className="sidebar-divider d-none d-md-block" />
-      {/* Sidebar Toggler (Sidebar) */}
-      <div className="text-center d-none d-md-inline">
-        <button className="rounded-circle border-0" id="sidebarToggle" />
-      </div>
-    </ul>
+    <Sidebar />
     {/* End of Sidebar */}
     {/* Content Wrapper */}
     <div id="content-wrapper" className="d-flex flex-column">
@@ -75,7 +29,7 @@ export default function AdminEditProduct() {
               <div className="card shadow">
                 <div className="card-header bg-primary d-flex justify-content-between">
                   <h3 className="text-light">Product management</h3>
-                  <a href="admin-products.html" className="btn btn-light">Back</a>
+                  <Link to="/product" className="btn btn-light">Back</Link>
                 </div>
                 <div className="card-body">
                   <h3>Edit product</h3>
@@ -180,13 +134,7 @@ export default function AdminEditProduct() {
       </div>
       {/* End of Main Content */}
       {/* Footer */}
-      <footer className="sticky-footer bg-white shadow">
-        <div className="container my-auto">
-          <div className="copyright text-center my-auto">
-            <span>Copyright © Your the easylearn academy 2025</span>
-          </div>
-        </div>
-      </footer>
+      <MyFooter />
       {/* End of Footer */}
     </div>
     {/* End of Content Wrapper */}

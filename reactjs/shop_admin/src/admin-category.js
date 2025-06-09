@@ -1,6 +1,6 @@
 import MyFooter from "./admin-footer";
 import Sidebar from "./admin-sidebar";
-
+import { Link } from "react-router-dom";
 export default function AdminCategory()
 {
 return (<div id="wrapper">
@@ -30,7 +30,7 @@ return (<div id="wrapper">
                         <div className="card shadow">
                             <div className="card-header bg-primary d-flex justify-content-between">
                                 <h3 className="text-light">Category management</h3>
-                                <a href="admin-add-category.html" className="btn btn-light">Add Category</a>
+                                <Link to="/category/add" className="btn btn-light">Add Category</Link>
                             </div>
                             <div className="card-body">
                                 <table className="table table-bordered table-striped">
@@ -53,7 +53,7 @@ return (<div id="wrapper">
                                             </td>
                                             <td>Yes</td>
                                             <td>
-                                                <a href="admin-edit-category.html" className="btn btn-warning">Edit</a>
+                                                <Link to="/category/edit" className="btn btn-warning">Edit</Link>
                                             </td>
                                             <td>
                                                 <a href="#" className="btn btn-danger">Delete</a>

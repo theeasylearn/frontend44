@@ -1,6 +1,6 @@
 import MyFooter from "./admin-footer";
 import Sidebar from "./admin-sidebar";
-
+import { Link } from "react-router-dom";
 export default function AdminAddProduct()
 {
 return (<div id="wrapper">
@@ -30,7 +30,7 @@ return (<div id="wrapper">
                         <div className="card shadow">
                             <div className="card-header bg-primary d-flex justify-content-between">
                                 <h3 className="text-light">Product management</h3>
-                                <a href="admin-products.html" className="btn btn-light">Back</a>
+                                <Link to="/product" className="btn btn-light">Back</Link>
                             </div>
                             <div className="card-body">
                                 <h3>Add new product</h3>

@@ -23,20 +23,20 @@ function MyRouter() {
         <BrowserRouter>
             <Routes>
                 <Route index path='/' element={<Login />} />
-                <Route path='dashboard' element={<AdminDashBoard />} />
-                <Route path='category' element={<AdminCategory />} />
-                <Route path='category/add' element={<AdminAddCategory />} />
-                <Route path='category/edit' element={<AdminEditCategory />} />
-                <Route path='product' element={<AdminProduct />} />
-                <Route path='product/add' element={<AdminAddProduct />} />
-                <Route path='product/edit' element={<AdminEditProduct />} />
-                <Route path='product/view' element={<AdminViewProductDetail />} />
-                <Route path='orders' element={<AdminOrders />} />
-                <Route path='orders/print' element={<AdminPrintOrder />} />
-                <Route path='orders/view' element={<AdminViewOrderDetail />} />
-                <Route path='user' element={<AdminUser />} />
-                <Route path='changepassword' element={<AdminChangePassword />} />
-                <Route path='compose' element={<AdminComposeEmail />} />
+                <Route path='/dashboard' element={<AdminDashBoard />} />
+                <Route path='/category' element={<AdminCategory />} />
+                <Route path='/category/add' element={<AdminAddCategory />} />
+                <Route path='/category/edit' element={<AdminEditCategory />} />
+                <Route path='/product' element={<AdminProduct />} />
+                <Route path='/product/add' element={<AdminAddProduct />} />
+                <Route path='/product/edit' element={<AdminEditProduct />} />
+                <Route path='/product/view' element={<AdminViewProductDetail />} />
+                <Route path='/orders' element={<AdminOrders />} />
+                <Route path='/orders/print' element={<AdminPrintOrder />} />
+                <Route path='/orders/view' element={<AdminViewOrderDetail />} />
+                <Route path='/user' element={<AdminUser />} />
+                <Route path='/changepassword' element={<AdminChangePassword />} />
+                <Route path='/compose' element={<AdminComposeEmail />} />
             </Routes>
         </BrowserRouter>
     );

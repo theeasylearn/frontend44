@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import MyFooter from "./admin-footer";
 import Sidebar from "./admin-sidebar";
 
@@ -50,7 +51,7 @@ export default function AdminOrders() {
                         <td>Bhavnagar - 364001</td>
                         <td>Confirmed</td>
                         <td>
-                          <a href="admin-view-order-detail.html" className="btn btn-info">View Order</a>
+                          <Link to="/orders/view" className="btn btn-info">View Order</Link>
                         </td>
                       </tr>
                     </tbody>

@@ -1,6 +1,6 @@
 import MyFooter from "./admin-footer";
 import Sidebar from "./admin-sidebar";
-
+import { Link } from "react-router-dom";
 export default function AdminViewOrderDetail() {
   return (<div id="wrapper">
     {/* Sidebar */}
@@ -27,7 +27,7 @@ export default function AdminViewOrderDetail() {
               <div className="card shadow">
                 <div className="card-header bg-primary d-flex justify-content-between">
                   <h3 className="text-light">Order management</h3>
-                  <a className="btn btn-success" href="admin-print-order.html">Print</a>
+                  <Link className="btn btn-success" to="/orders/print">Print</Link>
                 </div>
                 <div className="card-body">
                   <table className="table table-bordered table-striped-columns table-striped table-sm">

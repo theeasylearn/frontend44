@@ -1,6 +1,6 @@
 import MyFooter from "./admin-footer";
 import Sidebar from "./admin-sidebar";
-
+import { Link } from "react-router-dom";
 export default function AdminViewProductDetail() {
   return (<div id="wrapper">
     {/* Sidebar */}
@@ -27,14 +27,14 @@ export default function AdminViewProductDetail() {
               <div className="card shadow">
                 <div className="card-header bg-primary d-flex justify-content-between">
                   <h3 className="text-light">Product management</h3>
-                  <a href="admin-products.html" className="btn btn-light">Back Product</a>
+                  <Link to="/product" className="btn btn-light">Back Product</Link>
                 </div>
                 <div className="card-body">
                   <div className="row">
                     <div className="col-lg-4">
                       <img src="https://picsum.photos/500" className="img-fluid" />
                       <div className="row mt-3">
-                        <div className="col"> <a href="admin-edit-product.html" className="btn btn-warning btn-block">Edit</a></div>
+                        <div className="col"> <Link to="/product/edit" className="btn btn-warning btn-block">Edit</Link></div>
                         <div className="col"><a href="#" className="btn btn-danger btn-block">Delete</a></div>
                       </div>
                     </div>

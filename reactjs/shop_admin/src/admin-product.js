@@ -1,6 +1,6 @@
 import MyFooter from "./admin-footer";
 import Sidebar from "./admin-sidebar";
-
+import { Link } from "react-router-dom";
 export default function AdminProduct() {
   return (<div id="wrapper">
 
@@ -29,7 +29,7 @@ export default function AdminProduct() {
               <div className="card shadow">
                 <div className="card-header bg-primary d-flex justify-content-between">
                   <h3 className="text-light">Product management</h3>
-                  <a href="admin-add-product.html" className="btn btn-light">Add Product</a>
+                  <Link to="/product/add" className="btn btn-light">Add Product</Link>
                 </div>
                 <div className="card-body">
                   <table className="table table-bordered table-striped">
@@ -48,9 +48,9 @@ export default function AdminProduct() {
                         <td>1</td>
                         <td>IPhone 16 pro max (Mobile)
                           <div className="d-flex justify-content-start">
-                            <a href="admin-edit-product.html" className="btn btn-warning">Edit</a>
-                            <a href="#" className="btn btn-danger">Delete</a>
-                            <a href="admin-view-product-detail.html" className="btn btn-info">View</a>
+                            <Link to="/product/edit" className="btn btn-warning">Edit</Link>
+                            <button className="btn btn-danger">Delete</button>
+                            <Link to="/product/view" className="btn btn-info">View</Link>
                           </div>
                         </td>
                         <td>

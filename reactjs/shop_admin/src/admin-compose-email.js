@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import MyFooter from "./admin-footer";
 import Sidebar from "./admin-sidebar";
 
@@ -27,7 +28,7 @@ export default function AdminComposeEmail() {
             <div className="card shadow">
               <div className="card-header bg-primary d-flex justify-content-between">
                 <h3 className="text-light">User Management</h3>
-                <a href="admin-users.html" className="btn btn-light">Back</a>
+                <Link to="/user" className="btn btn-light">Back</Link>
               </div>
               <div className="card-body">
                 <h4 className="fw-bold text-dark border-bottom pb-2">Compose Mail</h4>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import MyFooter from "./admin-footer";
 import Sidebar from "./admin-sidebar";
 
@@ -50,7 +51,7 @@ export default function AdminUser() {
                         <td>Wed 28-05-2025 </td>
                         <td>Yes</td>
                         <td>
-                          <a href="admin-compose-email.html" className="btn btn-info">Email</a>
+                          <Link to="/compose" className="btn btn-info">Email</Link>
                         </td>
                       </tr>
                     </tbody>

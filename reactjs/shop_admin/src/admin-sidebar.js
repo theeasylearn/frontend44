@@ -1,44 +1,46 @@
+import {Link} from 'react-router-dom';
 export default function Sidebar()
 {
 return ( <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
     {/* Sidebar - Brand */}
-    <a className="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+    <Link className="sidebar-brand d-flex align-items-center justify-content-center" 
+        to="/dashboard">
         <div className="sidebar-brand-text mx-3">Online Shop</div>
-    </a>
+    </Link>
     {/* Divider */}
     <hr className="sidebar-divider my-0" />
     {/* Nav Item - Dashboard */}
     <li className="nav-item">
-        <a className="nav-link" href="admin-dashboard.html">
+        <Link className="nav-link" to="/dashboard">
             <i className="fas fa-fw fa-tachometer-alt" />
-            <span>Dashboard</span></a>
+            <span>Dashboard</span></Link>
     </li>
     {/* Divider */}
     <hr className="sidebar-divider" />
     {/* Nav Item - Tables */}
     <li className="nav-item active">
-        <a className="nav-link" href="admin-orders.html">
-            <span>Orders</span></a>
+        <Link className="nav-link" to="/orders">
+            <span>Orders</span></Link>
     </li>
     <li className="nav-item active">
-        <a className="nav-link" href="admin-users.html">
-            <span>Users</span></a>
+        <Link className="nav-link" to="/user">
+            <span>Users</span></Link>
     </li>
     <li className="nav-item active">
-        <a className="nav-link" href="admin-products.html">
-            <span>Products</span></a>
+        <Link className="nav-link" to="/product">
+            <span>Products</span></Link>
     </li>
     <li className="nav-item active">
-        <a className="nav-link" href="admin-categories.html">
-            <span>Categories</span></a>
+        <Link className="nav-link" to="/category">
+            <span>Categories</span></Link>
     </li>
     <li className="nav-item active">
-        <a className="nav-link" href="admin-change-password.html">
-            <span>Change password</span></a>
+        <Link className="nav-link" to="/changepassword">
+            <span>Change password</span></Link>
     </li>
     <li className="nav-item active">
-        <a className="nav-link" href="#">
-            <span>Logout</span></a>
+        <Link className="nav-link" to="">
+            <span>Logout</span></Link>
     </li>
     {/* Divider */}
     <hr className="sidebar-divider d-none d-md-block" />

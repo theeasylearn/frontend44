@@ -1,6 +1,6 @@
 import MyFooter from "./admin-footer";
 import Sidebar from "./admin-sidebar";
-
+import { Link } from "react-router-dom";
 export default function AdminAddCategory() {
     return (<div id="wrapper">
         {/* Sidebar */}
@@ -29,7 +29,7 @@ export default function AdminAddCategory() {
                             <div className="card shadow">
                                 <div className="card-header bg-primary d-flex justify-content-between">
                                     <h3 className="text-light">Category management</h3>
-                                    <a href="admin-categories.html" className="btn btn-light">Back</a>
+                                    <Link to="/category" className="btn btn-light">Back</Link>
                                 </div>
                                 <div className="card-body">
                                     <h4>Add new category</h4>

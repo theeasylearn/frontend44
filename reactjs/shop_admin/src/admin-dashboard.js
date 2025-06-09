@@ -29,7 +29,6 @@ export default function AdminDashBoard() {
               <div className="card shadow">
                 <div className="card-header bg-primary d-flex justify-content-between">
                   <h3 className="text-light">Dashboard</h3>
-                  <a href="#" className="btn btn-light">Action</a>
                 </div>
                 <div className="card-body">
                   <div className="row">
