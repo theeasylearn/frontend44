@@ -20,7 +20,7 @@ export default function Login() {
                         </form>
                     </div>
                     <div className="card-footer text-center">
-                        <a href="admin-forgot-password.html" className="text-decoration-none">Forgot password?</a>
+                        <Link to="#" className="text-decoration-none">Forgot password?</Link>
                     </div>
                 </div>
             </div>
