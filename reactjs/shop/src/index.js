@@ -4,5 +4,33 @@ import Login from './login';
 import Register from './register';
 import ForgotPassword from './forgot_password';
 import Cart from './cart';
+import Category from './category';
+import ChangePassword from './change-password';
+import Checkout from './checkout';
+import Home from './home';
+import ProductDetail from './product_detail';
+import Shop from './shop';
+import WishList from './wishlist';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Cart />);
+function MyRouter() {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/category" element={<Category />} />
+                <Route path="/change-password" element={<ChangePassword />} />
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/product/:id" element={<ProductDetail />} />
+                <Route path="/shop" element={<Shop />} />
+                <Route path="/wishlist" element={<WishList />} />
+            </Routes>
+        </BrowserRouter>
+    );
+}
+root.render(<MyRouter />);
