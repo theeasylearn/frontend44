@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 export default function Login() {
     return (<div className="container">
         <div className="row mt-5">
@@ -27,5 +28,5 @@ export default function Login() {
         </div>
     </div>
     );
-    
+
 }
