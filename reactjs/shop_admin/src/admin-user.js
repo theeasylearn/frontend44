@@ -1,8 +1,58 @@
 import { Link } from "react-router-dom";
 import MyFooter from "./admin-footer";
 import Sidebar from "./admin-sidebar";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function AdminUser() {
+
+  //create state array
+  let [users, setUsers] = useState([]);
+  useEffect(() => {
+    if (users.length == 0) {
+      //code will run after return statement execute
+      //api call 
+      //steps
+      /* 
+          1) call api to fetch data from server 
+          2) check if there is any error or not
+          3) check if api has data or not
+          4) if data is fetched then store it into state array
+          5) use array.map function to display data 
+      */
+      let apiAddress = "https://theeasylearnacademy.com/shop/ws/users.php";
+
+      axios({
+        method: 'get',
+        responseType: 'json',
+        url: apiAddress
+      }).then((response) => {
+        //this function will only run after data is fetched from server. all the data fetched from server is received in data property of response object
+        console.log(response);
+        let error = response.data[0]['error'];
+        if (error != 'no') {
+          alert(error);
+        }
+        else {
+          let total = response.data[1]['total'];
+          if (total === 0) {
+            alert('no users found');
+          }
+          else {
+            //no error and total > 0
+            response.data.splice(0, 2);
+            //store data into state array
+            setUsers(response.data);
+
+          }
+        }
+      }).catch((error) => {
+        if (error.code === 'ERR_NETWORK') {
+          alert('either server is down or you are offline');
+        }
+      })
+    }
+  });
   return (<div id="wrapper">
     {/* Sidebar */}
     <Sidebar />
@@ -38,22 +88,20 @@ export default function AdminUser() {
                         <th width="5%">Sr No</th>
                         <th>Email</th>
                         <th>Mobile</th>
-                        <th>Created At</th>
-                        <th width="10%">is Live?</th>
                         <th width="10%">Message</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>rahul@gmail.com</td>
-                        <td>1234567890</td>
-                        <td>Wed 28-05-2025 </td>
-                        <td>Yes</td>
-                        <td>
-                          <Link to="/compose" className="btn btn-info">Email</Link>
-                        </td>
-                      </tr>
+                      {users.map((item) => {
+                        return (<tr>
+                          <td>{item.id}</td>
+                          <td>{item.email}</td>
+                          <td>{item.mobile}</td>
+                          <td>
+                            <Link to="/compose" className="btn btn-info">Email</Link>
+                          </td>
+                        </tr>)
+                      })}
                     </tbody>
                   </table>
                 </div>
