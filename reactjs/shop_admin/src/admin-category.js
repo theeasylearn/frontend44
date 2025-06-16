@@ -3,7 +3,14 @@ import Sidebar from "./admin-sidebar";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import { useEffect, useState } from "react";
+// below line import default function from common.js
+import getBaseAddress from "./common";
 
+//below line import normal function common.js
+import { getBaseImageAddress } from "./common";
+
+import { ToastContainer } from 'react-toastify';
+import { showError, showMessage } from "./message";
 export default function AdminCategory() {
     let [categories, setCategory] = useState([]); //create state array
     useEffect(() => {
@@ -20,7 +27,7 @@ export default function AdminCategory() {
                 5) use array.map function to display data 
             */
             //step-1 
-            var apiAddress = "https://theeasylearnacademy.com/shop/ws/category.php";
+            var apiAddress = getBaseAddress() + "category.php";
             axios({
                 method: 'get',
                 responseType: 'json',
@@ -30,6 +37,7 @@ export default function AdminCategory() {
                 console.log('we got data from server');
                 console.log(response.data);
                 //step - 2
+                showMessage('data fetched');
                 let error = response.data[0]['error'];
                 if (error != 'no') {
                     alert(error);
@@ -49,7 +57,8 @@ export default function AdminCategory() {
             }).catch((error) => {
                 console.log(error);
                 if (error.code === 'ERR_NETWORK')
-                    alert('either server is down or you are offline');
+                    // toast('it seems either you are offline or server is not available');
+                    showError();
             });
         }
 
@@ -60,6 +69,7 @@ export default function AdminCategory() {
         {/* End of Sidebar */}
         {/* Content Wrapper */}
         <div id="content-wrapper" className="d-flex flex-column">
+            <ToastContainer />
             {/* Main Content */}
             <div id="content">
                 {/* Topbar */}
@@ -103,7 +113,7 @@ export default function AdminCategory() {
                                                         <td>{item.id}</td>
                                                         <td>{item.title}</td>
                                                         <td>
-                                                            <img src={"https://theeasylearnacademy.com/shop/images/category/" + item.photo} className="img-fluid" />
+                                                            <img src={getBaseImageAddress() + "category/" + item.photo} className="img-fluid" />
                                                         </td>
                                                         <td>{(item.islive === '1') ? "Yes" : "No"}</td>
                                                         <td>

@@ -3,7 +3,9 @@ import MyFooter from "./admin-footer";
 import Sidebar from "./admin-sidebar";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
+import getBaseAddress from "./common";
+import { ToastContainer } from 'react-toastify';
+import { showError, showMessage } from "./message";
 export default function AdminUser() {
 
   //create state array
@@ -20,7 +22,7 @@ export default function AdminUser() {
           4) if data is fetched then store it into state array
           5) use array.map function to display data 
       */
-      let apiAddress = "https://theeasylearnacademy.com/shop/ws/users.php";
+      let apiAddress = getBaseAddress() + "users.php";
 
       axios({
         method: 'get',
@@ -29,6 +31,7 @@ export default function AdminUser() {
       }).then((response) => {
         //this function will only run after data is fetched from server. all the data fetched from server is received in data property of response object
         console.log(response);
+        showMessage('data fetched...');
         let error = response.data[0]['error'];
         if (error != 'no') {
           alert(error);
@@ -48,7 +51,7 @@ export default function AdminUser() {
         }
       }).catch((error) => {
         if (error.code === 'ERR_NETWORK') {
-          alert('either server is down or you are offline');
+          showError();
         }
       })
     }
@@ -59,6 +62,8 @@ export default function AdminUser() {
     {/* End of Sidebar */}
     {/* Content Wrapper */}
     <div id="content-wrapper" className="d-flex flex-column">
+      {/* below is required code */}
+      <ToastContainer /> 
       {/* Main Content */}
       <div id="content">
         {/* Topbar */}
