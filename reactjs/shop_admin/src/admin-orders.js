@@ -1,8 +1,62 @@
 import { Link } from "react-router-dom";
 import MyFooter from "./admin-footer";
 import Sidebar from "./admin-sidebar";
+import axios from 'axios';
+import { useEffect, useState } from "react";
+import getBaseAddress from "./common";
 
+//below line import normal function common.js
+import { getBaseImageAddress } from "./common";
+
+import { ToastContainer } from 'react-toastify';
+import { showError, showMessage } from "./message";
 export default function AdminOrders() {
+  //create state array
+  let [data, setData] = useState([]);
+  let displayOrder = function (item) {
+    return (<tr>
+      <td>{item.id}</td>
+      <td>{item.billdate}</td>
+      <td>{item.amount}</td>
+      <td>{item.city} {item.pincode}</td>
+      <td>{item.orderstatus}</td>
+      <td>
+        <Link to="/orders/view" className="btn btn-info">View Order</Link>
+      </td>
+    </tr>);
+  }
+  useEffect(() => {
+    //api call 
+    if (data.length === 0) {
+      let apiAddress = getBaseAddress() + "orders.php";
+      axios({
+        method: 'get',
+        responseType: 'json',
+        url: apiAddress
+      }).then((response) => {
+        console.log(response.data);
+        let error = response.data[0]['error'];
+        if (error != 'no') {
+          showError(error);
+        }
+        else {
+          let total = response.data[1]['total'];
+          if (total === 0) {
+            showError('no product found');
+          }
+          else {
+            showMessage('products fetched...');
+            //delete 2 object from beginning 
+            response.data.splice(0, 2);
+            setData(response.data);
+          }
+        }
+      }).catch((error) => {
+        if (error.code === 'ERR_NETWORK')
+          showError();
+      });
+    }
+  });
   return (<div id="wrapper">
     {/* Sidebar */}
     <Sidebar />
@@ -44,16 +98,7 @@ export default function AdminOrders() {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Wed 27-05-2025 10:00 AM</td>
-                        <td>2,50,000</td>
-                        <td>Bhavnagar - 364001</td>
-                        <td>Confirmed</td>
-                        <td>
-                          <Link to="/orders/view" className="btn btn-info">View Order</Link>
-                        </td>
-                      </tr>
+                      {data.map((item) => displayOrder(item))}
                     </tbody>
                   </table>
                 </div>
@@ -65,7 +110,7 @@ export default function AdminOrders() {
       </div>
       {/* End of Main Content */}
       {/* Footer */}
-          <MyFooter />
+      <MyFooter />
       {/* End of Footer */}
     </div>
     {/* End of Content Wrapper */}

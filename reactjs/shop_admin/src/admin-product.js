@@ -1,7 +1,52 @@
 import MyFooter from "./admin-footer";
 import Sidebar from "./admin-sidebar";
 import { Link } from "react-router-dom";
+import axios from 'axios';
+import { useEffect, useState } from "react";
+import getBaseAddress from "./common";
+
+//below line import normal function common.js
+import { getBaseImageAddress } from "./common";
+
+import { ToastContainer } from 'react-toastify';
+import { showError, showMessage } from "./message";
+
 export default function AdminProduct() {
+  //create state array
+  let [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    //api call 
+    if (products.length === 0) {
+      let apiAddress = getBaseAddress() + "product.php";
+      axios({
+        method: 'get',
+        responseType: 'json',
+        url: apiAddress
+      }).then((response) => {
+        console.log(response.data);
+        let error = response.data[0]['error'];
+        if (error != 'no') {
+          showError(error);
+        }
+        else {
+          let total = response.data[1]['total'];
+          if (total === 0) {
+            showError('no product found');
+          }
+          else {
+            showMessage('products fetched...');
+            //delete 2 object from beginning 
+            response.data.splice(0, 2);
+            setProducts(response.data);
+          }
+        }
+      }).catch((error) => {
+        if (error.code === 'ERR_NETWORK')
+          showError();
+      });
+    }
+  });
   return (<div id="wrapper">
 
     {/* Sidebar */}
@@ -10,6 +55,7 @@ export default function AdminProduct() {
 
     {/* Content Wrapper */}
     <div id="content-wrapper" className="d-flex flex-column">
+      <ToastContainer />
       <div id="content">
         {/* Topbar */}
         <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -44,22 +90,24 @@ export default function AdminProduct() {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>IPhone 16 pro max (Mobile)
-                          <div className="d-flex justify-content-start">
-                            <Link to="/product/edit" className="btn btn-warning">Edit</Link>
-                            <button className="btn btn-danger">Delete</button>
-                            <Link to="/product/view" className="btn btn-info">View</Link>
-                          </div>
-                        </td>
-                        <td>
-                          <img src="https://picsum.photos/100" alt />
-                        </td>
-                        <td>150000</td>
-                        <td>15</td>
-                        <td>Yes</td>
-                      </tr>
+                      {products.map((item) => {
+                        return (<tr>
+                          <td>{item.id}</td>
+                          <td>{item.title} ({item.categorytitle})
+                            <div className="d-flex justify-content-start">
+                              <Link to="/product/edit" className="btn btn-warning">Edit</Link>
+                              <button className="btn btn-danger">Delete</button>
+                              <Link to="/product/view" className="btn btn-info">View</Link>
+                            </div>
+                          </td>
+                          <td>
+                            <img className="img-fluid" src={getBaseImageAddress() + "product/" + item.photo} alt='image not found' />
+                          </td>
+                          <td>{item.price}</td>
+                          <td>{item.stock}</td>
+                          <td>{(item.islive === '1')?"Yes":"No"}</td>
+                        </tr>)
+                      })}
                     </tbody>
                   </table>
                 </div>
