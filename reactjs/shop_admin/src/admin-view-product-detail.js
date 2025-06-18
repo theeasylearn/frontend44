@@ -1,13 +1,63 @@
+import axios from 'axios';
+import { useEffect, useState } from "react";
 import MyFooter from "./admin-footer";
 import Sidebar from "./admin-sidebar";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import getBaseAddress from "./common";
+
+//below line import normal function common.js
+import { getBaseImageAddress } from "./common";
+import { ToastContainer } from 'react-toastify';
+import { showError, showMessage } from "./message";
+
 export default function AdminViewProductDetail() {
-  return (<div id="wrapper">
+  // get param(variable) passed with route
+  let { productid } = useParams();
+  let [products, setProducts] = useState();
+  let [isDataFetched, setIsDataFetched] = useState(false);
+  useEffect(() => {
+    console.log(productid);
+    if (isDataFetched == false) {
+      let apiAddress = getBaseAddress() + "product.php?productid=" + productid;
+      console.log(apiAddress);
+      axios({
+        method: 'get',
+        responseType: 'json',
+        url: apiAddress
+      }).then((response) => {
+        console.log(response.data);
+        let error = response.data[0]['error'];
+        if (error != 'no') {
+          showError(error);
+        }
+        else {
+          let total = response.data[1]['total'];
+          if (total === 0) {
+            showError('no product found');
+          }
+          else {
+            showMessage('products fetched...');
+            //delete 2 object from beginning 
+            response.data.splice(0, 2);
+            setProducts(response.data);
+            setIsDataFetched(true);
+            console.log('everything is updated');
+          }
+        }
+      }).catch((error) => {
+        if (error.code === 'ERR_NETWORK')
+          showError();
+      });
+    }
+  });
+  let output = (<div id="wrapper">
     {/* Sidebar */}
     <Sidebar />
     {/* End of Sidebar */}
     {/* Content Wrapper */}
     <div id="content-wrapper" className="d-flex flex-column">
+      <ToastContainer />
       {/* Main Content */}
       <div id="content">
         {/* Topbar */}
@@ -43,7 +93,7 @@ export default function AdminViewProductDetail() {
                         <tbody>
                           <tr>
                             <td>ID</td>
-                            <td>1</td>
+                            <td>{products[0]['id']}</td>
                           </tr>
                           <tr>
                             <td>Name</td>
@@ -92,6 +142,9 @@ export default function AdminViewProductDetail() {
       {/* End of Footer */}
     </div>
     {/* End of Content Wrapper */}
-  </div>
-  );
+  </div>);
+  if (isDataFetched == false)
+    return 'loading please wait';
+  else
+    return output;
 }

@@ -22,6 +22,7 @@ function MyRouter() {
     return (
         <BrowserRouter>
             <Routes>
+                {/* static route */}
                 <Route index path='/' element={<Login />} />
                 <Route path='/dashboard' element={<AdminDashBoard />} />
                 <Route path='/category' element={<AdminCategory />} />
@@ -30,13 +31,14 @@ function MyRouter() {
                 <Route path='/product' element={<AdminProduct />} />
                 <Route path='/product/add' element={<AdminAddProduct />} />
                 <Route path='/product/edit' element={<AdminEditProduct />} />
-                <Route path='/product/view' element={<AdminViewProductDetail />} />
                 <Route path='/orders' element={<AdminOrders />} />
-                <Route path='/orders/print' element={<AdminPrintOrder />} />
-                <Route path='/orders/view' element={<AdminViewOrderDetail />} />
                 <Route path='/user' element={<AdminUser />} />
                 <Route path='/changepassword' element={<AdminChangePassword />} />
+                {/* dynamic route */}
                 <Route path='/compose' element={<AdminComposeEmail />} />
+                <Route path='/product/view/:productid' element={<AdminViewProductDetail />} />
+                <Route path='/orders/view' element={<AdminViewOrderDetail />} />
+                <Route path='/orders/print' element={<AdminPrintOrder />} />
             </Routes>
         </BrowserRouter>
     );

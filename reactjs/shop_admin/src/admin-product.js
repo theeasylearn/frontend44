@@ -97,7 +97,7 @@ export default function AdminProduct() {
                             <div className="d-flex justify-content-start">
                               <Link to="/product/edit" className="btn btn-warning">Edit</Link>
                               <button className="btn btn-danger">Delete</button>
-                              <Link to="/product/view" className="btn btn-info">View</Link>
+                              <Link to={"/product/view/" + item.id} className="btn btn-info">View</Link>
                             </div>
                           </td>
                           <td>

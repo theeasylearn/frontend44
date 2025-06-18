@@ -19,7 +19,8 @@ export default function AdminOrders() {
       <td>{item.billdate}</td>
       <td>{item.amount}</td>
       <td>{item.city} {item.pincode}</td>
-      <td>{item.orderstatus}</td>
+      <td>{
+    }</td>
       <td>
         <Link to="/orders/view" className="btn btn-info">View Order</Link>
       </td>
