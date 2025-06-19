@@ -37,7 +37,7 @@ function MyRouter() {
                 {/* dynamic route */}
                 <Route path='/compose' element={<AdminComposeEmail />} />
                 <Route path='/product/view/:productid' element={<AdminViewProductDetail />} />
-                <Route path='/orders/view' element={<AdminViewOrderDetail />} />
+                <Route path='/orders/view/:orderid' element={<AdminViewOrderDetail />} />
                 <Route path='/orders/print' element={<AdminPrintOrder />} />
             </Routes>
         </BrowserRouter>

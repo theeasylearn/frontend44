@@ -22,7 +22,7 @@ export default function AdminOrders() {
       <td>{
     }</td>
       <td>
-        <Link to="/orders/view" className="btn btn-info">View Order</Link>
+        <Link to={"/orders/view/" + item.id} className="btn btn-info">View Order</Link>
       </td>
     </tr>);
   }
