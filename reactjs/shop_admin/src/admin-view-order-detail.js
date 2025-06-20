@@ -16,6 +16,8 @@ export default function AdminViewOrderDetail() {
   let { orderid } = useParams();
   //state object 
   let [data, setData] = useState(null);
+  let [grandtotal, setGrandtotal] = useState(0);
+  let [products, setProducts] = useState([]);
   let fetchOrderDetail = function () {
     if (data === null) {
       // let apiAddress = getBaseAddress() + "orders.php?id=" + orderid;
@@ -47,7 +49,46 @@ export default function AdminViewOrderDetail() {
       });
     }
   }
-  useEffect(() => fetchOrderDetail());
+  let fetchItemDetail = function () {
+    if (products.length === 0) {
+      let apiAddress = getBaseAddress() + `order_details.php?orderid=${orderid}`;
+      console.log(apiAddress);
+      axios({
+        method: 'get',
+        responseType: 'json',
+        url: apiAddress
+      }).then((response) => {
+        console.log(response.data);
+        let error = response.data[0]['error'];
+        if (error != 'no') {
+          showError(error);
+        }
+        else {
+          let total = response.data[1]['total'];
+          if (total === 0) {
+            showError('no product found');
+          }
+          else {
+            // delete 2 items
+            response.data.splice(0, 2);
+            let tempTotal = 0; //normal variable
+            response.data.map((item) => {
+              tempTotal+= (item.price * item.quantity);
+            });
+            setGrandtotal(tempTotal);
+            setProducts(response.data);
+          }
+        }
+      }).catch((error) => {
+        if (error.code === 'ERR_NETWORK')
+          showError();
+      });
+    }
+  }
+  useEffect(() => {
+    fetchOrderDetail();
+    fetchItemDetail();
+  });
   if (data === null)
     return '';
   else
@@ -89,22 +130,23 @@ export default function AdminViewOrderDetail() {
                       </tr>
                         <tr>
                           <td>Address </td>
-                          <td>105 Eva surbhi, opp aksharwadi</td>
+                          <td>{data['address1']} {data['address2']}</td>
                           <td>Date</td>
-                          <td>28-05-2025</td>
+                          <td>{data['billdate']}</td>
                         </tr>
                         <tr>
                           <td>City</td>
-                          <td>Bhavnagar</td>
+                          <td>{data['city']}</td>
                           <td>Status</td>
                           <td>
                             <div className="row">
                               <div className="col-6">
                                 <select name id className="form-select">
-                                  <option value={1}>Confirmed</option>
-                                  <option value={2}>Dispatched</option>
-                                  <option value={3}>Delivered</option>
-                                  <option value={4}>Returned</option>
+                                  <option value={1} selected={data['orderstatus'] === '1'}>Confirmed</option>
+                                  <option value={2} selected={data['orderstatus'] === '2'}>Dispatched</option>
+                                  <option value={3} selected={data['orderstatus'] === '3'}>Delivered</option>
+                                  <option value={4} selected={data['orderstatus'] === '4'}>Returned</option>
+                                  <option value={5} selected={data['orderstatus'] === '5'}>Canceled</option>
                                 </select>
                               </div>
                               <div className="col-6">
@@ -115,15 +157,15 @@ export default function AdminViewOrderDetail() {
                         </tr>
                         <tr>
                           <td>Pincode</td>
-                          <td>364001</td>
+                          <td>{data['pincode']}</td>
                           <td>Payment</td>
-                          <td>Online</td>
+                          <td>{data['paymentmode'] == '1' ? "Online" : "COD"}</td>
                         </tr>
                         <tr>
                           <td>Remarks</td>
-                          <td>Gift packing, delivery on working day</td>
+                          <td>{data['remarks']}</td>
                           <td>Mobile</td>
-                          <td>9876543210</td>
+                          <td>{data['mobile']}</td>
                         </tr>
                       </tbody></table>
                     <h3>Order Detail</h3>
@@ -139,14 +181,17 @@ export default function AdminViewOrderDetail() {
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>1011</td>
-                          <td>IPhone 16 pro max</td>
-                          <td>125000</td>
-                          <td>2</td>
-                          <td>250000</td>
-                        </tr>
+                        {
+                        products.map((item,index) => {
+                          return (<tr>
+                            <td>{index+1}</td>
+                            <td>{item['id']}</td>
+                            <td>{item['title']}</td>
+                            <td>{item['price']}</td>
+                            <td>{item['quantity']}</td>
+                            <td>{item['price'] * item['quantity']}</td>
+                          </tr>)
+                        })}
                       </tbody>
                       <tfoot>
                         <tr>
@@ -154,7 +199,7 @@ export default function AdminViewOrderDetail() {
                             Grand total
                           </th>
                           <td className="text-end">
-                            250000
+                            {grandtotal}
                           </td>
                         </tr>
                       </tfoot>
