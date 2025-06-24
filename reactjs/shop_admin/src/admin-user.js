@@ -6,8 +6,10 @@ import axios from "axios";
 import getBaseAddress from "./common";
 import { ToastContainer } from 'react-toastify';
 import { showError, showMessage } from "./message";
-export default function AdminUser() {
+import VerifyLogin from './verify_login';
 
+export default function AdminUser() {
+  VerifyLogin();
   //create state array
   let [users, setUsers] = useState([]);
   useEffect(() => {

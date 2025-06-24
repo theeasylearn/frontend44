@@ -10,12 +10,13 @@ import getBaseAddress from "./common";
 import { getBaseImageAddress } from "./common";
 import { ToastContainer } from 'react-toastify';
 import { showError, showMessage } from "./message";
-
+import VerifyLogin from './verify_login';
 export default function AdminViewProductDetail() {
   // get param(variable) passed with route
   let { productid } = useParams();
 
   let [product, setProduct] = useState(null);
+  VerifyLogin();
   useEffect(() => {
     if (product === null) {
       let apiAddress = getBaseAddress() + "product.php?productid=" + productid;

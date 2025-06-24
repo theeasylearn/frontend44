@@ -1,6 +1,6 @@
 import MyFooter from "./admin-footer";
 import Sidebar from "./admin-sidebar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { useEffect, useState } from "react";
 
@@ -11,8 +11,11 @@ import getBaseAddress from "./common";
 
 import { ToastContainer } from 'react-toastify';
 import { showError, showMessage } from "./message";
+import VerifyLogin from "./verify_login";
 export default function AdminCategory() {
     let [categories, setCategory] = useState([]); //create state array
+    //this function verify whether user has logged in or not
+    VerifyLogin();
     useEffect(() => {
         //useEffect hook will run  after return statement executes
         //check is data already fetched from server or not 

@@ -1,7 +1,10 @@
 import MyFooter from "./admin-footer";
 import Sidebar from "./admin-sidebar";
 import { Link } from "react-router-dom";
+import VerifyLogin from './verify_login';
+
 export default function AdminEditProduct() {
+  VerifyLogin();
   return (<div id="wrapper">
     {/* Sidebar */}
     <Sidebar />

@@ -39,7 +39,7 @@ return ( <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark acco
             <span>Change password</span></Link>
     </li>
     <li className="nav-item active">
-        <Link className="nav-link" to="">
+        <Link className="nav-link" to="/logout">
             <span>Logout</span></Link>
     </li>
     {/* Divider */}

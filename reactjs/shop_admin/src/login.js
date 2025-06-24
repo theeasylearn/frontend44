@@ -7,12 +7,14 @@ import { ToastContainer } from 'react-toastify';
 import { showError, showMessage } from "./message";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 export default function Login() {
     //create state variables for each input
     let [email, setEmail] = useState('');
     let [password, setPassword] = useState('');
     let navigate = useNavigate();
-
+    //  array    used to add cookie, used to remove cookie
+    const [cookies, setCookie, removeCookie] = useCookies(['theeasylearn']);
     let verifyLogin = function (e) {
         console.log(email, password);
         e.preventDefault();
@@ -44,10 +46,12 @@ export default function Login() {
                 }
                 else {
                     showMessage(message);
+                    //create cookie
+                    setCookie('adminid',response.data[3]['id']);
                     //pause code execution for 2 seconds
                     setTimeout(() => {
                         navigate("/dashboard");
-                    },2000);
+                    }, 2000);
                 }
             }
         }).catch((error) => {

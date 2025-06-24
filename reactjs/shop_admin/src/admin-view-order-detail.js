@@ -10,6 +10,7 @@ import getBaseAddress from "./common";
 import { getBaseImageAddress } from "./common";
 import { ToastContainer } from 'react-toastify';
 import { showError, showMessage } from "./message";
+import VerifyLogin from './verify_login';
 
 export default function AdminViewOrderDetail() {
   // fetch data passed into url (params)
@@ -18,6 +19,7 @@ export default function AdminViewOrderDetail() {
   let [data, setData] = useState(null);
   let [grandtotal, setGrandtotal] = useState(0);
   let [products, setProducts] = useState([]);
+  VerifyLogin();
   let fetchOrderDetail = function () {
     if (data === null) {
       // let apiAddress = getBaseAddress() + "orders.php?id=" + orderid;

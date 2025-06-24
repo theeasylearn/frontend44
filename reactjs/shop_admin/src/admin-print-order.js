@@ -1,7 +1,9 @@
 import MyFooter from "./admin-footer";
 import Sidebar from "./admin-sidebar";
+import VerifyLogin from './verify_login';
 
 export default function AdminPrintOrder() {
+  VerifyLogin();
   return (<div id="wrapper">
     {/* Sidebar */}
 

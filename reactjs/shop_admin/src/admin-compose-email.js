@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import MyFooter from "./admin-footer";
 import Sidebar from "./admin-sidebar";
+import VerifyLogin from './verify_login';
 
 export default function AdminComposeEmail() {
+  VerifyLogin();
    return (<div id="wrapper">
     <Sidebar />
   {/* Content Wrapper */}

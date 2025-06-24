@@ -10,11 +10,12 @@ import { getBaseImageAddress } from "./common";
 
 import { ToastContainer } from 'react-toastify';
 import { showError, showMessage } from "./message";
+import VerifyLogin from './verify_login';
 
 export default function AdminProduct() {
   //create state array
   let [products, setProducts] = useState([]);
-
+  VerifyLogin();
   useEffect(() => {
     //api call 
     if (products.length === 0) {
@@ -105,7 +106,7 @@ export default function AdminProduct() {
                           </td>
                           <td>{item.price}</td>
                           <td>{item.stock}</td>
-                          <td>{(item.islive === '1')?"Yes":"No"}</td>
+                          <td>{(item.islive === '1') ? "Yes" : "No"}</td>
                         </tr>)
                       })}
                     </tbody>

@@ -10,8 +10,11 @@ import { getBaseImageAddress } from "./common";
 
 import { ToastContainer } from 'react-toastify';
 import { showError, showMessage } from "./message";
+import VerifyLogin from './verify_login';
+
 export default function AdminOrders() {
   //create state array
+  VerifyLogin();
   let [data, setData] = useState([]);
   let displayOrder = function (item) {
     return (<tr>
