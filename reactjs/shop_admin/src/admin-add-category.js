@@ -2,8 +2,18 @@ import MyFooter from "./admin-footer";
 import Sidebar from "./admin-sidebar";
 import { Link } from "react-router-dom";
 import VerifyLogin from './verify_login';
-
+import { useState } from "react";
 export default function AdminAddCategory() {
+    //create 3 state variables for 3 inputs by user 
+
+    let [title, setTitle] = useState('');
+    let [photo, setPhoto] = useState(null);
+    let [islive, setIsLive] = useState(0);
+    let saveCategory = function(event)
+    {
+        event.preventDefault();
+        console.log(title,photo,islive);
+    }
     VerifyLogin();
     return (<div id="wrapper">
         {/* Sidebar */}
@@ -36,17 +46,22 @@ export default function AdminAddCategory() {
                                 </div>
                                 <div className="card-body">
                                     <h4>Add new category</h4>
-                                    <form className="needs-validation" noValidate>
+                                    <form className="needs-validation" 
+                                    onSubmit={saveCategory}>
                                         <div className="mb-3">
                                             <label htmlFor="title" className="form-label">Title</label>
-                                            <input type="text" className="form-control" id="title" placeholder="Enter title" required />
+                                            <input type="text" className="form-control" id="title" placeholder="Enter title" required 
+                                            value={title} onChange={(e) => setTitle(e.target.value)} />
                                             <div className="invalid-feedback">
                                                 Please enter a title.
                                             </div>
                                         </div>
                                         <div className="mb-3">
                                             <label htmlFor="photo" className="form-label">Photo</label>
-                                            <input type="file" className="form-control" id="photo" accept="image/*" placeholder="Upload photo" required />
+                                            {/* do not set value property where type=file 
+                                            and use e.target.files[0] in set method */}
+                                            <input type="file" className="form-control" id="photo" accept="image/*" placeholder="Upload photo" required 
+                                            onChange={(e) => setPhoto(e.target.files[0])} />
                                             <div className="invalid-feedback">
                                                 Please upload a valid image file.
                                             </div>
@@ -54,11 +69,14 @@ export default function AdminAddCategory() {
                                         <div className="mb-3">
                                             <label className="form-label">Is Live</label>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="radio" name="islive" id="isliveYes" defaultValue="yes" required />
+                                                {/* do not set value property using state in case of radio  */}
+                                                <input className="form-check-input" type="radio" name="islive" id="isliveYes" value="1" required
+                                                onChange={(e) => setIsLive(e.target.value)} />
                                                 <label className="form-check-label" htmlFor="isliveYes">Yes</label>
                                             </div>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="radio" name="islive" id="isliveNo" defaultValue="no" />
+                                                <input className="form-check-input" type="radio" name="islive" id="isliveNo" value="0"
+                                                onChange={(e) => setIsLive(e.target.value)} />
                                                 <label className="form-check-label" htmlFor="isliveNo">No</label>
                                             </div>
                                             <div className="invalid-feedback">
