@@ -1,18 +1,59 @@
 import MyFooter from "./admin-footer";
 import Sidebar from "./admin-sidebar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import VerifyLogin from './verify_login';
 import { useState } from "react";
+import getBaseAddress from "./common";
+
+import { ToastContainer } from 'react-toastify';
+import { showError, showMessage } from "./message";
+import axios from 'axios';
+
 export default function AdminAddCategory() {
     //create 3 state variables for 3 inputs by user 
 
     let [title, setTitle] = useState('');
     let [photo, setPhoto] = useState(null);
     let [islive, setIsLive] = useState(0);
+    let navigate = useNavigate();
     let saveCategory = function(event)
     {
         event.preventDefault();
         console.log(title,photo,islive);
+        //api call
+        var apiAddress = getBaseAddress() + "insert_category.php";
+        // input : title, photo, islive
+        // [{"error":"input is missing"}]
+        // [{"error":"no"},{'success':'yes'},{'message':'category inserted'}]
+        let form = new FormData();
+        form.append("title",title);
+        form.append('photo',photo);
+        form.append('islive',islive);
+        axios({
+            method:'post',
+            responseType:'json',
+            url: apiAddress,
+            data:form
+        }).then((response) =>{
+            console.log(response.data);
+            let error = response.data[0]['error'];
+            if(error !='no')
+                showError(error);
+            else 
+            {
+                let success = response.data[1]['success'];
+                let message = response.data[2]['message'];
+                if(success === 'no')
+                    showError(message);
+                else 
+                {
+                    showMessage(message);
+                    setTimeout(() => {
+                        navigate("/category");
+                    },2000);
+                }
+            }
+        });
     }
     VerifyLogin();
     return (<div id="wrapper">
@@ -24,6 +65,7 @@ export default function AdminAddCategory() {
             {/* Main Content */}
             <div id="content">
                 {/* Topbar */}
+                <ToastContainer />
                 <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     {/* Sidebar Toggle (Topbar) */}
                     <form className="form-inline">
