@@ -66,6 +66,42 @@ export default function AdminCategory() {
         }
 
     });
+
+    let deleteCategory = function (categoryId) {
+        // alert(categoryId);
+        let response = window.confirm("Are you sure you want to do this?");
+        if (response === true) {
+            let apiAddress = getBaseAddress() + "delete_category.php?id=" + categoryId;
+            axios({
+                method: 'get',
+                responseType: 'json',
+                url: apiAddress
+            }).then((response) => {
+                let error = response.data[0]['error'];
+                if (error != 'no') {
+                    alert(error);
+                }
+                else {
+                    let message = response.data[1]['message'];
+                    // delete item from state array
+                    let newList = categories.filter((item) => {
+                        if (item['id'] !== categoryId) {
+                            return item;
+                        }
+                    });
+                    console.log(newList);
+                    setCategory(newList);
+                    setTimeout(() => {
+                        showMessage(message);
+                    }, 2000);
+
+                }
+            }).catch((error) => {
+                if (error.code === 'ERR_NETWORK')
+                    showError();
+            })
+        }
+    }
     return (<div id="wrapper">
         {/* Sidebar */}
         <Sidebar />
@@ -120,10 +156,10 @@ export default function AdminCategory() {
                                                         </td>
                                                         <td>{(item.islive === '1') ? "Yes" : "No"}</td>
                                                         <td>
-                                                            <Link to="/category/edit" className="btn btn-warning">Edit</Link>
+                                                            <Link to={"/category/edit/" + item.id} className="btn btn-warning">Edit</Link>
                                                         </td>
                                                         <td>
-                                                            <a href="#" className="btn btn-danger">Delete</a>
+                                                            <a href="#" className="btn btn-danger" onClick={() => deleteCategory(item.id)}>Delete</a>
                                                         </td>
                                                     </tr>);
                                                 })}

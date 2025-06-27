@@ -48,6 +48,41 @@ export default function AdminProduct() {
       });
     }
   });
+  let deleteProduct = function (productId) {
+    // alert(categoryId);
+    let response = window.confirm("Are you sure you want to do this?");
+    if (response === true) {
+      let apiAddress = getBaseAddress() + "delete_product.php?id=" + productId;
+      axios({
+        method: 'get',
+        responseType: 'json',
+        url: apiAddress
+      }).then((response) => {
+        let error = response.data[0]['error'];
+        if (error != 'no') {
+          alert(error);
+        }
+        else {
+          let message = response.data[1]['message'];
+          // delete item from state array
+          let newList = products.filter((item) => {
+            if (item['id'] !== productId) {
+              return item;
+            }
+          });
+          console.log(newList);
+          setProducts(newList);
+          setTimeout(() => {
+            showMessage(message);
+          }, 2000);
+
+        }
+      }).catch((error) => {
+        if (error.code === 'ERR_NETWORK')
+          showError();
+      })
+    }
+  }
   return (<div id="wrapper">
 
     {/* Sidebar */}
@@ -96,8 +131,8 @@ export default function AdminProduct() {
                           <td>{item.id}</td>
                           <td>{item.title} ({item.categorytitle})
                             <div className="d-flex justify-content-start">
-                              <Link to="/product/edit" className="btn btn-warning">Edit</Link>
-                              <button className="btn btn-danger">Delete</button>
+                              <Link to={"/product/edit/" + item.id} className="btn btn-warning">Edit</Link>
+                              <button className="btn btn-danger" onClick={() => deleteProduct(item.id)}>Delete</button>
                               <Link to={"/product/view/" + item.id} className="btn btn-info">View</Link>
                             </div>
                           </td>

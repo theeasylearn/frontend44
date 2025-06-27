@@ -29,10 +29,10 @@ function MyRouter() {
                     <Route path='/dashboard' element={<AdminDashBoard />} />
                     <Route path='/category' element={<AdminCategory />} />
                     <Route path='/category/add' element={<AdminAddCategory />} />
-                    <Route path='/category/edit' element={<AdminEditCategory />} />
+
                     <Route path='/product' element={<AdminProduct />} />
                     <Route path='/product/add' element={<AdminAddProduct />} />
-                    <Route path='/product/edit' element={<AdminEditProduct />} />
+
                     <Route path='/orders' element={<AdminOrders />} />
                     <Route path='/user' element={<AdminUser />} />
                     <Route path='/changepassword' element={<AdminChangePassword />} />
@@ -40,6 +40,8 @@ function MyRouter() {
                     <Route path='/compose' element={<AdminComposeEmail />} />
                     <Route path='/product/view/:productid' element={<AdminViewProductDetail />} />
                     <Route path='/orders/view/:orderid' element={<AdminViewOrderDetail />} />
+                    <Route path='/category/edit/:categoryid' element={<AdminEditCategory />} />
+                    <Route path='/product/edit/:productid' element={<AdminEditProduct />} />
                     <Route path='/orders/print' element={<AdminPrintOrder />} />
                     <Route path='/logout' element={<AdminLogout />} />
                 </Routes>
