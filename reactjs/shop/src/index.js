@@ -12,25 +12,28 @@ import ProductDetail from './product_detail';
 import Shop from './shop';
 import WishList from './wishlist';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { CookiesProvider } from 'react-cookie';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 function MyRouter() {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/forgot-password" element={<ForgotPassword />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/category" element={<Category />} />
-                <Route path="/change-password" element={<ChangePassword />} />
-                <Route path="/checkout" element={<Checkout />} />
-                <Route path="/product/:id" element={<ProductDetail />} />
-                <Route path="/shop" element={<Shop />} />
-                <Route path="/wishlist" element={<WishList />} />
-            </Routes>
-        </BrowserRouter>
+        <CookiesProvider defaultSetOptions={{ path: '/' }}>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/forgot-password" element={<ForgotPassword />} />
+                    <Route path="/cart" element={<Cart />} />
+                    <Route path="/category" element={<Category />} />
+                    <Route path="/change-password" element={<ChangePassword />} />
+                    <Route path="/checkout" element={<Checkout />} />
+                    <Route path="/product/:id" element={<ProductDetail />} />
+                    <Route path="/shop" element={<Shop />} />
+                    <Route path="/wishlist" element={<WishList />} />
+                </Routes>
+            </BrowserRouter>
+        </CookiesProvider>
     );
 }
 root.render(<MyRouter />);
