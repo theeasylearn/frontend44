@@ -2,6 +2,7 @@ import React from "react";
 import HeaderMenu from "./HeaderMenu";
 import MyFooter from "./Footer";
 class ChangePassword extends React.Component {
+    
     render() {
         return (
             <>
