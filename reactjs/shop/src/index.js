@@ -7,6 +7,7 @@ import Cart from './cart';
 import Category from './category';
 import ChangePassword from './change-password';
 import Checkout from './checkout';
+import Logout from './logout';
 import Home from './home';
 import ProductDetail from './product_detail';
 import Shop from './shop';
@@ -31,6 +32,7 @@ function MyRouter() {
                     <Route path="/product/:id" element={<ProductDetail />} />
                     <Route path="/shop" element={<Shop />} />
                     <Route path="/wishlist" element={<WishList />} />
+                    <Route path="/logout" element={<Logout />} />
                 </Routes>
             </BrowserRouter>
         </CookiesProvider>

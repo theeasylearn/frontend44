@@ -7,7 +7,7 @@ let withHooks = (Component) => {
     const params = useParams();
     const navigate = useNavigate();
     const [cookies, setCookie, removeCookie] = useCookies('theeasylearn');
-
+    
     // Pass hooks as props to the component
     return <Component {...props} params={params} navigate={navigate} cookies={cookies} setCookie={setCookie} removeCookie={removeCookie} />;
   };

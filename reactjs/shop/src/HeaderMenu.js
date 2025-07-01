@@ -1,9 +1,45 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import withHooks from "./with_hooks";
 //create class 
 class HeaderMenu extends React.Component {
-    render() {
-        return (  <>
+  GuestMenu = () => {
+    return (<>
+      <li className="nav-item">
+        <Link className="nav-link" to="/register">Register</Link>
+      </li>
+      <li className="nav-item">
+        <Link className="nav-link" to="/login">Login</Link>
+      </li>
+    </>);
+  }
+
+  UserMenu = () => {
+    return (<><li className="nav-item">
+      <Link className="nav-link" to="/cart">Cart</Link>
+    </li>
+      <li className="nav-item">
+        <Link className="nav-link" to="/wishlist">WishList</Link>
+      </li>
+      <li className="nav-item">
+        <Link className="nav-link" to="/checkout">Checkout</Link>
+      </li>
+      <li className="nav-item">
+        <Link className="nav-link" to="/change-password">Change Password</Link>
+      </li>
+      <li className="nav-item">
+        <Link className="nav-link" to="/logout">Logout</Link>
+      </li></>);
+  }
+
+  showMenu = () => {
+      if(this.props.cookies['id'] === undefined)
+        return this.GuestMenu();
+      else 
+        return this.UserMenu();
+  }
+  render() {
+    return (<>
       <header className="py-lg-5 py-4 px-0 border-bottom border-bottom-lg-0">
         <div className="container-fluid">
           <div className="row w-100 align-items-center g-0 gx-lg-3">
@@ -71,27 +107,7 @@ class HeaderMenu extends React.Component {
                   <li className="nav-item">
                     <Link className="nav-link" to="/shop">Shop</Link>
                   </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/cart">Cart</Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/wishlist">WishList</Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/checkout">Checkout</Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/change-password">Change Password</Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/logout">Logout</Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/register">Register</Link>
-                  </li>
-                  <li className="nav-item">
-                    <Link className="nav-link" to="/login">Login</Link>
-                  </li>
+                  {this.showMenu()}
                 </ul>
               </div>
             </div>
@@ -99,6 +115,6 @@ class HeaderMenu extends React.Component {
         </div>
       </nav>
     </>);
-    }
+  }
 }
-export default HeaderMenu
+export default withHooks(HeaderMenu);
