@@ -1,7 +1,64 @@
 import React from "react";
 import HeaderMenu from "./HeaderMenu";
 import MyFooter from "./Footer";
+import getBaseAddress, { getBaseImageAddress } from "./common";
+import axios from "axios";
+import { showError } from "./message";
+import { ToastContainer } from "react-toastify";
 class Home extends React.Component {
+    constructor(props) {
+        super(props);
+        //crete state 
+        this.state = {
+            categories: []
+        }
+    }
+    componentDidMount() {
+        //api calling
+        let apiAddress = getBaseAddress() + "category.php";
+        axios({
+            method: 'get',
+            responseType: 'json',
+            url: apiAddress
+        }).then((response) => {
+            let error = response.data[0]['error'];
+            if (error !== 'no') {
+                showError(error)
+            }
+            else {
+                let total = response.data[1]['total'];
+                if (total === 0)
+                    showError('no category found');
+                else {
+                    //delete 2 objects from begining
+                    response.data.splice(0, 2);
+                    this.setState({
+                        categories: response.data
+                    })
+                }
+            }
+        }).catch((error) => {
+            if (error === 'ERR_NETWORK')
+                showError();
+        })
+    }
+
+    display = (item) => {
+        return (<div className="col" >
+            <a href="shop-grid.html" className="text-decoration-none text-inherit">
+                {/* card */}
+                <div className="card card-product">
+                    <div className="card-body text-center py-8">
+                        {/* img */}
+                        <img src={getBaseImageAddress() + "category/" + item['photo']} alt="Grocery Ecommerce Template" className="mb-3 img-fluid" />
+                        {/* text */}
+                        <div className="text-truncate">{item['title']}</div>
+                    </div>
+                </div>
+            </a>
+        </div>);
+
+    }
     render() {
         return (
             <>
@@ -9,6 +66,7 @@ class Home extends React.Component {
                 <main>
                     <section className="mt-8">
                         <div className="container">
+                            <ToastContainer />
                             {/* row */}
                             <div className="table-responsive-xl pb-6 pb-xl-0">
                                 <div className="row flex-nowrap">
@@ -90,19 +148,8 @@ class Home extends React.Component {
                             </div>
                             <div className="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xxl-6 g-6">
                                 {/* col */}
-                                <div className="col">
-                                    <a href="shop-grid.html" className="text-decoration-none text-inherit">
-                                        {/* card */}
-                                        <div className="card card-product">
-                                            <div className="card-body text-center py-8">
-                                                {/* img */}
-                                                <img src="theme/assets/images/category/category-dairy-bread-eggs.jpg" alt="Grocery Ecommerce Template" className="mb-3" />
-                                                {/* text */}
-                                                <div className="text-truncate">Dairy, Bread &amp; Eggs</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
+                                {this.state.categories.map((item) => this.display(item))}
+
                             </div>
                         </div>
                     </section>

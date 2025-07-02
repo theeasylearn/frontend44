@@ -45,7 +45,7 @@ class Login extends React.Component {
                 else {
                     let id = response.data[3]['id'];
                     showMessage(message);
-                    this.props.setCookie("id",id);
+                    this.props.setCookie("cd",id);
                     //store id into cookies
                     setTimeout(() => {
                         this.props.navigate("/");
