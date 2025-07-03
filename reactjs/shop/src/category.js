@@ -5,6 +5,7 @@ import getBaseAddress, { getBaseImageAddress } from "./common";
 import axios from "axios";
 import { showError } from "./message";
 import { ToastContainer } from "react-toastify";
+import { Link } from "react-router-dom";
 
 class Category extends React.Component {
     constructor(props) {
@@ -46,7 +47,7 @@ class Category extends React.Component {
         return (<div className="col-lg-2 col-md-4 col-6">
             <div className="text-center mb-10">
                 {/* img */}
-                <a href="#"><img src={getBaseImageAddress() + "category/" + item['photo']} alt className="card-image rounded-circle img-fluid" /></a>
+                <Link to={"/shop/" + item['id']}><img src={getBaseImageAddress() + "category/" + item['photo']} alt className="card-image rounded-circle img-fluid" /></Link>
                 {/* text */}
                 <div className="mt-4">
                     <h5 className="fs-6 mb-0"><a href="shop-grid.html" className="text-inherit">{item['title']}</a></h5>

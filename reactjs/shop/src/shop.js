@@ -5,6 +5,8 @@ import getBaseAddress, { getBaseImageAddress } from "./common";
 import axios from "axios";
 import { showError } from "./message";
 import { ToastContainer } from 'react-toastify';
+import withHooks from './with_hooks';
+import { Link } from 'react-router-dom';
 class Shop extends React.Component {
     constructor(props) {
         super(props);
@@ -14,7 +16,15 @@ class Shop extends React.Component {
     }
     componentDidMount() {
         //api calling
-        let apiAddress = getBaseAddress() + "product.php";
+        let apiAddress = null;
+        let { categoryid } = this.props.params;
+        console.log(categoryid);
+        if (categoryid !== undefined) {
+            apiAddress = getBaseAddress() + "product.php?categoryid=" + categoryid;
+        }
+        else {
+            apiAddress = getBaseAddress() + "product.php";
+        }
         axios({
             method: 'get',
             responseType: 'json',
@@ -48,17 +58,17 @@ class Shop extends React.Component {
                     <div className="card-body">
                         {/* badge */}
                         <div className="text-center position-relative">
-                            <a href="user-product-detail.html">
+                            <Link to={"/product/" + item['id']}>
                                 {/* img */}
                                 <img src={getBaseImageAddress() + "product/" + item['photo']} alt="Grocery Ecommerce Template" className="mb-3 img-fluid" />
-                            </a>
+                            </Link>
                         </div>
                         {/* heading */}
                         <div className="text-small mb-1">
                             <a href="#!" className="text-decoration-none text-muted"><small>{item['categorytitle']}</small></a>
                         </div>
                         <h2 className="fs-6"><a href="shop-single.html" className="text-inherit text-decoration-none">{item['title']}e</a></h2>
-                       
+
                         {/* price */}
                         <div className="d-flex justify-content-between align-items-center mt-3">
                             <div>
@@ -72,6 +82,19 @@ class Shop extends React.Component {
                     </div>
                 </div>
             </div>);
+    }
+    showProducts = () => {
+        return (<div className="row g-4 row-cols-lg-5 row-cols-2 row-cols-md-3 mt-2 pb-10">
+            {/* col */}
+
+            {/* card product */}
+            {this.state.products.map((item) => this.display(item))}
+        </div>)
+    }
+    notFound = () => {
+        return <div className='text-center'>
+            <img className='text-center' src='/no-product-found.png' />
+        </div>
     }
     render() {
         return (<div>
@@ -90,12 +113,8 @@ class Shop extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div className="row g-4 row-cols-lg-5 row-cols-2 row-cols-md-3 mt-2 pb-10">
-                            {/* col */}
+                        {(this.state.products.length > 0) ? this.showProducts() : this.notFound()}
 
-                            {/* card product */}
-                            {this.state.products.map((item) => this.display(item))}
-                        </div>
                     </div>
                 </section>
             </main>
@@ -105,4 +124,4 @@ class Shop extends React.Component {
         );
     }
 }
-export default Shop;
+export default withHooks(Shop);

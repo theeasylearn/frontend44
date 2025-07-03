@@ -29,10 +29,12 @@ function MyRouter() {
                     <Route path="/category" element={<Category />} />
                     <Route path="/change-password" element={<ChangePassword />} />
                     <Route path="/checkout" element={<Checkout />} />
-                    <Route path="/product/:id" element={<ProductDetail />} />
-                    <Route path="/shop" element={<Shop />} />
                     <Route path="/wishlist" element={<WishList />} />
                     <Route path="/logout" element={<Logout />} />
+                    {/* dynamic route */}
+                   // Route definition with optional parameter
+                    <Route path="/shop/:categoryid?" element={<Shop />} />
+                    <Route path="/product/:productid" element={<ProductDetail />} />
                 </Routes>
             </BrowserRouter>
         </CookiesProvider>

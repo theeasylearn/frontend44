@@ -5,6 +5,7 @@ import getBaseAddress, { getBaseImageAddress } from "./common";
 import axios from "axios";
 import { showError } from "./message";
 import { ToastContainer } from "react-toastify";
+import { Link } from "react-router-dom";
 class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -45,7 +46,7 @@ class Home extends React.Component {
 
     display = (item) => {
         return (<div className="col" >
-            <a href="shop-grid.html" className="text-decoration-none text-inherit">
+            <Link to={"shop/" + item['id']} className="text-decoration-none text-inherit">
                 {/* card */}
                 <div className="card card-product">
                     <div className="card-body text-center py-8">
@@ -55,7 +56,7 @@ class Home extends React.Component {
                         <div className="text-truncate">{item['title']}</div>
                     </div>
                 </div>
-            </a>
+            </Link>
         </div>);
 
     }
