@@ -3,7 +3,7 @@ import HeaderMenu from './HeaderMenu';
 import MyFooter from './Footer';
 import getBaseAddress, { getBaseImageAddress } from "./common";
 import axios from "axios";
-import { showError } from "./message";
+import { showError, showMessage } from "./message";
 import { ToastContainer } from 'react-toastify';
 import withHooks from './with_hooks';
 import { Link } from 'react-router-dom';
@@ -51,6 +51,31 @@ class Shop extends React.Component {
                 showError();
         })
     }
+
+    addtoCart = (item) => {
+        //alert('add to cart');
+        //http://theeasylearnacademy.com/shop/ws/add_to_cart.php?productid=1&usersid=1
+        let id = this.props.cookies['id'];
+        let apiAddress = getBaseAddress() + `add_to_cart.php?productid=${item.id}&usersid=${id}`;
+        axios({
+            method: 'get',
+            responseType: "json",
+            url: apiAddress
+        }).then((response) => {
+            console.log(response.data);
+            let error = response.data[0]['error'];
+            if (error !== 'no')
+                showError(error);
+            else {
+                let message = response.data[1]['message'];
+                showMessage(message);
+            }
+        }).catch((error) => {
+            if (error.code === 'ERR_NETWORK')
+                showError();
+        })
+    }
+
     display = (item) => {
         return (
             <div className="col">
@@ -76,7 +101,7 @@ class Shop extends React.Component {
                             </div>
                             {/* btn */}
                             <div>
-                                <button className="btn btn-success">Add to cart</button>
+                                <button onClick={() => this.addtoCart(item)} className="btn btn-success">Add to cart</button>
                             </div>
                         </div>
                     </div>

@@ -45,8 +45,12 @@ Types of users
         register, login, logout, change password, recover account
         browse products, manage cart, place orders 
 
-        (excercise)
-			wishlist
-         pincode check 
-         view history & download bill 
-         rating and reviews 
+        below is excercise
+            wishlist
+                https://theeasylearnacademy.com/shop/ws/add_to_wishlist.php?usersid=25&productid=2
+                https://theeasylearnacademy.com/shop/ws/wishlist.php?usersid=52
+                https://theeasylearnacademy.com/shop/ws/move_to_cart.php?usersid=52&productid=5
+                https://theeasylearnacademy.com/shop/ws/delete_from_wishlist.php?wishlistid=1
+            pincode check 
+            view history & download bill 
+            rating and reviews 
